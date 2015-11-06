@@ -1,0 +1,12 @@
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\bin\Debug\Dynamic Games.exe.config
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\bin\Debug\Dynamic Games.exe
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\bin\Debug\Dynamic Games.pdb
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\obj\Debug\Dynamic Games.csprojResolveAssemblyReference.cache
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\obj\Debug\Dynamic_Games.FormMenu.resources
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\obj\Debug\Dynamic_Games.Properties.Resources.resources
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\obj\Debug\Dynamic Games.csproj.GenerateResource.Cache
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\obj\Debug\Dynamic Games.exe
+C:\Users\Hajna\Desktop\University\Software engineering\Dynamic Games\Dynamic Games\obj\Debug\Dynamic Games.pdb
+C:\Users\Hajna\Desktop\University\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Debug\Dynamic Games.exe.config
+C:\Users\Hajna\Desktop\University\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Debug\Dynamic Games.exe
+C:\Users\Hajna\Desktop\University\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Debug\Dynamic Games.pdb
