@@ -20,22 +20,30 @@ namespace Dynamic_Games
         private void buttonNonCoop_Click(object sender, EventArgs e)
         {
             var nonCoopForm = new NonCoopForm();
-            nonCoopForm.Show();
             this.Hide();
+            nonCoopForm.ShowDialog();
+            // When new form DioalogResult = ok
+            this.Show();
+
         }
 
         private void buttonCoop_Click(object sender, EventArgs e)
         {
             var coopForm = new CoopForm();
-            coopForm.Show();
             this.Hide();
+            coopForm.ShowDialog();
+            // When new form DioalogResult = ok
+            this.Show();
+            
         }
 
         private void buttonIncompInf_Click(object sender, EventArgs e)
         {
             var incInfForm = new IncInformationForm();
-            incInfForm.Show();
             this.Hide();
+            incInfForm.ShowDialog();
+            // When new form DioalogResult = ok
+            this.Show();
         }
     }
 }
