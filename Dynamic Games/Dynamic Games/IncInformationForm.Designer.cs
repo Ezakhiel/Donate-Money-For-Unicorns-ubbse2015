@@ -48,6 +48,7 @@
             this.ClientSize = new System.Drawing.Size(846, 313);
             this.Controls.Add(this.button1);
             this.Name = "IncInformationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IncompleteInformationForm";
             this.Load += new System.EventHandler(this.IncInformationForm_Load);
             this.ResumeLayout(false);
