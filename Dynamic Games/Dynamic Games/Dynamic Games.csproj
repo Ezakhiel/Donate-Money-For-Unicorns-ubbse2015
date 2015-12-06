@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +51,12 @@
     <Compile Include="CoopForm.Designer.cs">
       <DependentUpon>CoopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IncInformation\Cards\Deck.cs" />
+    <Compile Include="IncInformation\Player\AIPlayer.cs" />
+    <Compile Include="IncInformation\Cards\Card.cs" />
+    <Compile Include="IncInformation\Player\HumanPlayer.cs" />
+    <Compile Include="IncInformation\Player\Player.cs" />
+    <Compile Include="IncInformation\Player\Table.cs" />
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,17 +77,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CoopForm.resx">
-      <DependentUpon>CoopForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="IncInformationForm.resx">
       <DependentUpon>IncInformationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NonCoopForm.resx">
-      <DependentUpon>NonCoopForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -92,6 +91,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -106,6 +106,169 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\greentop.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\back.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c01.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c02.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c03.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c04.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c05.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c06.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c07.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c08.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c09.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\c13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d01.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d02.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d03.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d04.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d05.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d06.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d07.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d08.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d09.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\d13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h01.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h02.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h03.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h04.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h05.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h06.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h07.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h08.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h09.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\h13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s01.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s02.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s03.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s04.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s05.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s06.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s07.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s08.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s09.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="card-BMPs\s13.bmp" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

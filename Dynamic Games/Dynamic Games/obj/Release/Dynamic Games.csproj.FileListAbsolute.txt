@@ -1,0 +1,10 @@
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe.config
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.pdb
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.IncInformationForm.resources
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.MenuForm.resources
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.Properties.Resources.resources
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csproj.GenerateResource.Cache
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.exe
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.pdb
+F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csprojResolveAssemblyReference.cache

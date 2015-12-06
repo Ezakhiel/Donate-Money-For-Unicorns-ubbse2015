@@ -63,7 +63,7 @@
             this.buttonIncompInf.UseVisualStyleBackColor = true;
             this.buttonIncompInf.Click += new System.EventHandler(this.buttonIncompInf_Click);
             // 
-            // MenuForm
+            // FormMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -71,8 +71,7 @@
             this.Controls.Add(this.buttonIncompInf);
             this.Controls.Add(this.buttonCoop);
             this.Controls.Add(this.buttonNonCoop);
-            this.Name = "MenuForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Name = "FormMenu";
             this.Text = "Dynamic Games";
             this.ResumeLayout(false);
 
