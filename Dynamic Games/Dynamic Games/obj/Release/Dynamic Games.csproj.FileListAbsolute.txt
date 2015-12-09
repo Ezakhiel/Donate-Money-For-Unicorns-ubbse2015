@@ -8,3 +8,14 @@ F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic Gam
 F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.exe
 F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.pdb
 F:\C# Projekts\Poker-dynamic\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csprojResolveAssemblyReference.cache
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe.config
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.exe
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.pdb
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.pdb
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csprojResolveAssemblyReference.cache
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.CoopForm.resources
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.IncInformationForm.resources
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.MenuForm.resources
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.Properties.Resources.resources
+C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csproj.GenerateResource.Cache
