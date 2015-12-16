@@ -19,3 +19,14 @@ C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-F
 C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.MenuForm.resources
 C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.Properties.Resources.resources
 C:\Users\Hajna\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csproj.GenerateResource.Cache
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe.config
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.exe
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.pdb
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csprojResolveAssemblyReference.cache
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.CoopForm.resources
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.IncInformationForm.resources
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.MenuForm.resources
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.Properties.Resources.resources
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csproj.GenerateResource.Cache
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe
+c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.pdb

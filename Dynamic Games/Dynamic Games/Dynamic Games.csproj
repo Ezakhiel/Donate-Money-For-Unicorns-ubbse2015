@@ -81,6 +81,7 @@
     <Compile Include="NonCoopForm.Designer.cs">
       <DependentUpon>NonCoopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NonCoops\GenerateGraph.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CoopForm.resx">
