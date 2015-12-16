@@ -52,6 +52,11 @@
     <Compile Include="CoopForm.Designer.cs">
       <DependentUpon>CoopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="coop\backend\Controller.cs" />
+    <Compile Include="coop\backend\EquilibriumCalculator.cs" />
+    <Compile Include="coop\models\Coalition.cs" />
+    <Compile Include="coop\models\Player.cs" />
+    <Compile Include="coop\models\ValueFunction.cs" />
     <Compile Include="IncInformation\Cards\Deck.cs" />
     <Compile Include="IncInformation\Player\AIPlayer.cs" />
     <Compile Include="IncInformation\Cards\Card.cs" />
