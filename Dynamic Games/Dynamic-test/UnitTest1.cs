@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Dynamic_Games;
-using Dynamic_Games.Properties;
+using Dynamic_Games.IncInformation;
 using Dynamic_Games.IncInformation.Player;
 
 namespace Dynamic_test
@@ -9,6 +9,7 @@ namespace Dynamic_test
     [TestClass]
     public class UnitTest1
     {
+
         [TestMethod]
         public void CardVisTest()
         {
@@ -29,7 +30,7 @@ namespace Dynamic_test
             {
                 if (testForm.cardIterator[i].Image != p.cards[0].CardImage)
                     result = false;
-                if (testForm.cardIterator[i + 1].Image = p.cards[1].CardImage)
+                if (testForm.cardIterator[i + 1].Image != p.cards[1].CardImage)
                     result = false;
                 i += 2;
             }
