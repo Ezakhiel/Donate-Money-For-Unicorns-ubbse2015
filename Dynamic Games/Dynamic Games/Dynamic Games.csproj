@@ -278,7 +278,12 @@
   <ItemGroup>
     <None Include="card-BMPs\s13.bmp" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HandEvaluator\HandEvaluator.csproj">
+      <Project>{57836673-fe81-4367-a4eb-aaa46fb954d2}</Project>
+      <Name>HandEvaluator</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

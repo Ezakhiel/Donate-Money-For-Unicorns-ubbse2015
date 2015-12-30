@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Dynamic_Games.IncInformation.Cards;
+using MyCard = Dynamic_Games.IncInformation.Cards;
 
 namespace Dynamic_Games.IncInformation.Player
 {
@@ -18,12 +18,16 @@ namespace Dynamic_Games.IncInformation.Player
     public abstract class Player
     {
         public int cash;
-        public List<Card> cards;
+        public List<MyCard.Card> cards;
         public Position pos;
         public int bet;
+        public int folded;
+
 
         public abstract void setBet(int b);
-        public abstract void setPos(Position p); 
-        public abstract void setCards(Card c1, Card c2);
+
+        public abstract double getChance();
+        public abstract void setPos(Position p);
+        public abstract void setCards(MyCard.Card c1, MyCard.Card c2);
     }
 }

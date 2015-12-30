@@ -1,0 +1,17 @@
+E:\TexasHoldem_Greg_Bray_V1.09_2009AUG25\TexasHoldem\Other\Hand_Evaluator_V2_Original_Source\Hand_Evaluator\Hand Evaluator\HandEvaluator\bin\Debug\HandEvaluator.XML
+E:\TexasHoldem_Greg_Bray_V1.09_2009AUG25\TexasHoldem\Other\Hand_Evaluator_V2_Original_Source\Hand_Evaluator\Hand Evaluator\HandEvaluator\bin\Debug\HandEvaluator.dll
+E:\TexasHoldem_Greg_Bray_V1.09_2009AUG25\TexasHoldem\Other\Hand_Evaluator_V2_Original_Source\Hand_Evaluator\Hand Evaluator\HandEvaluator\bin\Debug\HandEvaluator.pdb
+E:\TexasHoldem_Greg_Bray_V1.09_2009AUG25\TexasHoldem\Other\Hand_Evaluator_V2_Original_Source\Hand_Evaluator\Hand Evaluator\HandEvaluator\obj\Debug\HandEvaluator.dll
+E:\TexasHoldem_Greg_Bray_V1.09_2009AUG25\TexasHoldem\Other\Hand_Evaluator_V2_Original_Source\Hand_Evaluator\Hand Evaluator\HandEvaluator\obj\Debug\HandEvaluator.pdb
+F:\C# Projekts\Poker-dynamic\Poker-dynamic\Dynamic Games\HandEvaluator\bin\Debug\HandEvaluator.XML
+F:\C# Projekts\Poker-dynamic\Poker-dynamic\Dynamic Games\HandEvaluator\bin\Debug\HandEvaluator.pdb
+F:\C# Projekts\Poker-dynamic\Poker-dynamic\Dynamic Games\HandEvaluator\obj\Debug\HandEvaluator.pdb
+F:\C# Projekts\Poker-dynamic\Poker-dynamic\Dynamic Games\HandEvaluator\obj\Debug\HandEvaluator.csprojResolveAssemblyReference.cache
+F:\C# Projekts\Poker-dynamic\Poker-dynamic\Dynamic Games\HandEvaluator\bin\Debug\HandEvaluator.dll
+F:\C# Projekts\Poker-dynamic\Poker-dynamic\Dynamic Games\HandEvaluator\obj\Debug\HandEvaluator.dll
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\bin\Debug\HandEvaluator.XML
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\bin\Debug\HandEvaluator.dll
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\bin\Debug\HandEvaluator.pdb
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\obj\Debug\HandEvaluator.csprojResolveAssemblyReference.cache
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\obj\Debug\HandEvaluator.dll
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\obj\Debug\HandEvaluator.pdb

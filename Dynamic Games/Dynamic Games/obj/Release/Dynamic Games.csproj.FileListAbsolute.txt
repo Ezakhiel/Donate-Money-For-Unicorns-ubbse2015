@@ -30,3 +30,14 @@ c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Game
 c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csproj.GenerateResource.Cache
 c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe
 c:\UnicornProject\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.pdb
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe.config
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.exe
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.pdb
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.pdb
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csprojResolveAssemblyReference.cache
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.CoopForm.resources
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.IncInformationForm.resources
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.MenuForm.resources
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.Properties.Resources.resources
+F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csproj.GenerateResource.Cache

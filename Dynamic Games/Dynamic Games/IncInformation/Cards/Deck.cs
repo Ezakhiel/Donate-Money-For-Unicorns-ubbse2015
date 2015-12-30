@@ -9,7 +9,7 @@ namespace Dynamic_Games.IncInformation.Cards
 {
     class Deck
     {
-        List<Card> Cards;
+        List<Dynamic_Games.IncInformation.Cards.Card> Cards;
         static Random rnd;
         public Deck()
         {
@@ -20,11 +20,11 @@ namespace Dynamic_Games.IncInformation.Cards
         public void initDeck()
         {
             // Resets deck with cards
-            Cards = new List<Card>(52);
+            Cards = new List<Dynamic_Games.IncInformation.Cards.Card>(52);
             String symbol = "c";
             String nameHelper;
             Bitmap img;
-            Card tmpCard;
+            Dynamic_Games.IncInformation.Cards.Card tmpCard;
             for (int i = 0; i < 4; i++)
             {
                 //c -> treff
@@ -61,11 +61,11 @@ namespace Dynamic_Games.IncInformation.Cards
             }
         }
 
-        public Card getCard()
+        public Dynamic_Games.IncInformation.Cards.Card getCard()
         {
             //gets and removes a card from the deck
             int r = rnd.Next(Cards.Count);
-            Card tempCard = Cards[r];
+            Dynamic_Games.IncInformation.Cards.Card tempCard = Cards[r];
             Cards.RemoveAt(r);
             return tempCard;
         }

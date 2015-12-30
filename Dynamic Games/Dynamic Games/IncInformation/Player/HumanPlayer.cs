@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Dynamic_Games.IncInformation.Cards;
+using MyCard = Dynamic_Games.IncInformation.Cards;
 
 namespace Dynamic_Games.IncInformation.Player
 {
@@ -12,12 +12,13 @@ namespace Dynamic_Games.IncInformation.Player
     {
         public HumanPlayer(int cash)
         {
-            cards = new List<Card>(2);
+            cards = new List<MyCard.Card>(2);
             this.cash = cash;
         }
 
-        public override void setCards(Card c1, Card c2)
+        public override void setCards(MyCard.Card c1, MyCard.Card c2)
         {
+            cards = new List<MyCard.Card>(2);
             cards.Add(c1);
             cards.Add(c2);
         }
@@ -33,5 +34,10 @@ namespace Dynamic_Games.IncInformation.Player
         }
 
 
+
+        public override double getChance()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
