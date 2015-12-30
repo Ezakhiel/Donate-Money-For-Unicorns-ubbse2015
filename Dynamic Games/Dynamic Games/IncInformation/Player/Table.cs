@@ -15,7 +15,7 @@ namespace Dynamic_Games.IncInformation.Player
     {
         Preflop, Flop, Turn, River
     };
-    class Table : INotifyPropertyChanged
+    public class Table : INotifyPropertyChanged
     {
 
         public List<Player> players = new List<Player>(8);

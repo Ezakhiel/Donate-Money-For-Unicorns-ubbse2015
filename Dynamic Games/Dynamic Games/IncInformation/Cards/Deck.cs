@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Dynamic_Games.IncInformation.Cards
 {
-    class Deck
+    public class Deck
     {
         List<Dynamic_Games.IncInformation.Cards.Card> Cards;
         static Random rnd;

@@ -48,10 +48,10 @@ namespace Dynamic_Games
             }
         }
 
-        List<PictureBox> cardIterator = new List<PictureBox>(21);
+        public List<PictureBox> cardIterator = new List<PictureBox>(21);
         List<PlayerVisuals> playerVis = new List<PlayerVisuals>(6);
         List<Label> cashIterator = new List<Label>(8);
-        Table table;
+        public Table table;
 
         public IncInformationForm()
         {

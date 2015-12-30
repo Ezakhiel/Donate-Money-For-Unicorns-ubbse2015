@@ -936,29 +936,8 @@ namespace Dynamic_Games
 
         private System.Windows.Forms.PictureBox TablePicture;
         private ComboBox ComboPlayerCount;
-        private PictureBox P1C1;
-        private PictureBox P1C2;
-        private PictureBox P2C2;
-        private PictureBox P2C1;
-        private PictureBox P3C2;
-        private PictureBox P3C1;
-        private PictureBox P4C2;
-        private PictureBox P4C1;
-        private PictureBox P5C2;
-        private PictureBox P5C1;
-        private PictureBox P6C2;
-        private PictureBox P6C1;
-        private PictureBox P7C2;
-        private PictureBox P7C1;
-        private PictureBox P8C2;
-        private PictureBox P8C1;
         private Label PlayerNrLabel;
         private Label P1Label;
-        private PictureBox Flop1;
-        private PictureBox Flop2;
-        private PictureBox Flop3;
-        private PictureBox River;
-        private PictureBox Turn;
         private ComboBox P1ComboBox;
         private ComboBox P2ComboBox;
         private Label P2Label;
@@ -1003,6 +982,27 @@ namespace Dynamic_Games
         private Label P6Bet;
         private Label P7Bet;
         private Label P8Bet;
+        public PictureBox P1C1;
+        public PictureBox P1C2;
+        public PictureBox P2C2;
+        public PictureBox P2C1;
+        public PictureBox P3C2;
+        public PictureBox P3C1;
+        public PictureBox P4C2;
+        public PictureBox P4C1;
+        public PictureBox P5C2;
+        public PictureBox P5C1;
+        public PictureBox P6C2;
+        public PictureBox P6C1;
+        public PictureBox P7C2;
+        public PictureBox P7C1;
+        public PictureBox P8C2;
+        public PictureBox P8C1;
+        public PictureBox Flop1;
+        public PictureBox Flop2;
+        public PictureBox Flop3;
+        public PictureBox River;
+        public PictureBox Turn;
 
     }
 }
