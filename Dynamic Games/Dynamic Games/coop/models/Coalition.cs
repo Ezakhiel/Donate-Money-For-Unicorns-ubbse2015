@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dynamic_Games.coop.models
 {
-    class Coalition
+    public class Coalition
     {
         List<Player> players;
         long maximumValue;
@@ -18,8 +18,17 @@ namespace Dynamic_Games.coop.models
             materials = new int[m];
         }
 
-        private void calculateMaximumValue(){
+        public int calculateMaximumValue(){
             //TODO: calculate maximum value by players
+            int max = 0;
+            for (int i = 0; i < materials.Length; i++)
+            {
+                if (materials[i] > max)
+                {
+                    max = materials[i];
+                }
+            }
+            return max;
         }
 
         public void addPlayer(Player player)
@@ -27,7 +36,7 @@ namespace Dynamic_Games.coop.models
             if (player.Materials.Length > materials.Length)
             {
                 //TODO: create exception
-                throw new Exception();
+                //throw new Exception();
             }
             players.Add(player);
             materials = materials.Zip(player.Materials, (x, y) => x + y).ToArray<int>();

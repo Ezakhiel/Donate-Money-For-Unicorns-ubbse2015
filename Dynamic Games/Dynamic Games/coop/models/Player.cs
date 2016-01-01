@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Dynamic_Games.coop.models
 {
-    class Player
+    public class Player
     {
-        private ValueFunction valueFunction;
-        private int[] materials;
+        public ValueFunction valueFunction;
+        public int[] materials;
 
-        internal ValueFunction ValueFunction
+        public ValueFunction ValueFunction
         {
             get { return valueFunction; }
             set { valueFunction = value; }
@@ -21,10 +21,6 @@ namespace Dynamic_Games.coop.models
         {
             get { return materials; }
             set { materials = value; }
-        }
-
-        public Player()
-        {
         }
 
         public Player(ValueFunction valueFunction, int[] materials)

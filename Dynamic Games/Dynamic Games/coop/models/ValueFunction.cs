@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Dynamic_Games.coop.models
 {
-    class ValueFunction
+    public class ValueFunction
     {
-        private String function;
-        private String parameters;
+        public String function;
+        public String parameters;
 
         public String Function
         {
