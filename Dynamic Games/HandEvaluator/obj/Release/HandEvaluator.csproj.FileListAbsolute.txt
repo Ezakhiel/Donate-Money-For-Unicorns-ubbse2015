@@ -3,3 +3,9 @@ F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\b
 F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\bin\Release\HandEvaluator.pdb
 F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\obj\Release\HandEvaluator.dll
 F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\obj\Release\HandEvaluator.pdb
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\bin\Release\HandEvaluator.XML
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\bin\Release\HandEvaluator.dll
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\bin\Release\HandEvaluator.pdb
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\obj\Release\HandEvaluator.dll
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\obj\Release\HandEvaluator.pdb
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\HandEvaluator\obj\Release\HandEvaluator.csprojResolveAssemblyReference.cache

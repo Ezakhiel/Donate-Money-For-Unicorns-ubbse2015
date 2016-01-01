@@ -36,5 +36,26 @@ namespace Dynamic_test
             }
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void CoopInputParamTest()
+        {
+            //(numericPlayer.Value == 0 || textBoxProduct.Text == "" || richTextBoxMaterials.Text == "")
+            CoopForm coopTest = new CoopForm();
+
+            coopTest.textBoxProduct.Text = "";
+            coopTest.numericPlayer.Value = 0;
+            coopTest.richTextBoxMaterials.Text = "";
+            Assert.IsFalse(coopTest.CheckFill());
+
+            coopTest.numericPlayer.Value = 5;
+            Assert.IsFalse(coopTest.CheckFill());
+
+            coopTest.textBoxProduct.Text = "alma";
+            Assert.IsFalse(coopTest.CheckFill());
+
+            coopTest.richTextBoxMaterials.Text = "rost\nmag";
+            Assert.IsTrue(coopTest.CheckFill());
+        }
     }
 }

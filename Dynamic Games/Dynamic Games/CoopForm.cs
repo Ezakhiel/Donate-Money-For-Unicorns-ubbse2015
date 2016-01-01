@@ -17,6 +17,16 @@ namespace Dynamic_Games
             InitializeComponent();
         }
 
+        //check if everything is filled.
+        public bool CheckFill()
+        {
+            if (numericPlayer.Value <= 0 || textBoxProduct.Text == "" || richTextBoxMaterials.Text == "")
+            {
+                return false;
+            }
+            return true;
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
@@ -35,28 +45,27 @@ namespace Dynamic_Games
             //}
         }
 
-        private void DrawCoalitions()
-        {
-            Graphics g = panelCoalition.CreateGraphics();
-            g.DrawEllipse(new Pen(Color.Black, 2), 20, 20, 70, 40);
-            g.FillEllipse(Brushes.Red, 35, 34, 10, 10);
-            g.FillEllipse(Brushes.Blue, 60, 34, 10, 10);
-        }
-
+        
         private void buttonStart_Click(object sender, EventArgs e)
         {
-            if (buttonStart.Text == "Start")
+            if (CheckFill())
             {
-                buttonStart.Text = "Pause";
-                DrawCoalitions();
-            }
-            else if (buttonStart.Text == "Pause")
-            {
-                buttonStart.Text = "Resume";
+                if (buttonStart.Text == "Start")
+                {
+                    buttonStart.Text = "Pause";
+                }
+                else if (buttonStart.Text == "Pause")
+                {
+                    buttonStart.Text = "Resume";
+                }
+                else
+                {
+                    buttonStart.Text = "Pause";
+                }
             }
             else
             {
-                buttonStart.Text = "Pause";
+                MessageBox.Show(this, "You have to fill everything!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -64,7 +73,5 @@ namespace Dynamic_Games
         {
             buttonStart.Text = "Start";
         }
-
-
     }
 }

@@ -31,11 +31,8 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.panelCoalition = new System.Windows.Forms.Panel();
             this.chartProfit = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.numericPlayerNo = new System.Windows.Forms.NumericUpDown();
-            this.numericNewPlayer = new System.Windows.Forms.NumericUpDown();
-            this.numericPlayerLeft = new System.Windows.Forms.NumericUpDown();
+            this.numericPlayer = new System.Windows.Forms.NumericUpDown();
             this.richTextBoxMaterials = new System.Windows.Forms.RichTextBox();
             this.textBoxProduct = new System.Windows.Forms.TextBox();
             this.buttonStart = new System.Windows.Forms.Button();
@@ -45,18 +42,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonStop = new System.Windows.Forms.Button();
+            this.buttonNewPlayer = new System.Windows.Forms.Button();
+            this.buttonLeaver = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.chartProfit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPlayerNo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericNewPlayer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPlayerLeft)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPlayer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelCoalition
-            // 
-            this.panelCoalition.Location = new System.Drawing.Point(12, 13);
-            this.panelCoalition.Name = "panelCoalition";
-            this.panelCoalition.Size = new System.Drawing.Size(350, 207);
-            this.panelCoalition.TabIndex = 0;
             // 
             // chartProfit
             // 
@@ -74,26 +66,12 @@
             this.chartProfit.TabIndex = 0;
             this.chartProfit.Text = "Winning function";
             // 
-            // numericPlayerNo
+            // numericPlayer
             // 
-            this.numericPlayerNo.Location = new System.Drawing.Point(421, 29);
-            this.numericPlayerNo.Name = "numericPlayerNo";
-            this.numericPlayerNo.Size = new System.Drawing.Size(144, 20);
-            this.numericPlayerNo.TabIndex = 1;
-            // 
-            // numericNewPlayer
-            // 
-            this.numericNewPlayer.Location = new System.Drawing.Point(377, 88);
-            this.numericNewPlayer.Name = "numericNewPlayer";
-            this.numericNewPlayer.Size = new System.Drawing.Size(101, 20);
-            this.numericNewPlayer.TabIndex = 2;
-            // 
-            // numericPlayerLeft
-            // 
-            this.numericPlayerLeft.Location = new System.Drawing.Point(505, 88);
-            this.numericPlayerLeft.Name = "numericPlayerLeft";
-            this.numericPlayerLeft.Size = new System.Drawing.Size(101, 20);
-            this.numericPlayerLeft.TabIndex = 3;
+            this.numericPlayer.Location = new System.Drawing.Point(421, 29);
+            this.numericPlayer.Name = "numericPlayer";
+            this.numericPlayer.Size = new System.Drawing.Size(144, 20);
+            this.numericPlayer.TabIndex = 1;
             // 
             // richTextBoxMaterials
             // 
@@ -175,11 +153,45 @@
             this.buttonStop.UseVisualStyleBackColor = true;
             this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
             // 
+            // buttonNewPlayer
+            // 
+            this.buttonNewPlayer.Location = new System.Drawing.Point(377, 88);
+            this.buttonNewPlayer.Name = "buttonNewPlayer";
+            this.buttonNewPlayer.Size = new System.Drawing.Size(108, 23);
+            this.buttonNewPlayer.TabIndex = 13;
+            this.buttonNewPlayer.Text = "+1 player";
+            this.buttonNewPlayer.UseVisualStyleBackColor = true;
+            // 
+            // buttonLeaver
+            // 
+            this.buttonLeaver.Location = new System.Drawing.Point(502, 88);
+            this.buttonLeaver.Name = "buttonLeaver";
+            this.buttonLeaver.Size = new System.Drawing.Size(108, 23);
+            this.buttonLeaver.TabIndex = 14;
+            this.buttonLeaver.Text = "-1 player";
+            this.buttonLeaver.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.SystemColors.Window;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(350, 211);
+            this.dataGridView1.TabIndex = 15;
+            // 
             // CoopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 448);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.buttonLeaver);
+            this.Controls.Add(this.buttonNewPlayer);
             this.Controls.Add(this.buttonStop);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -189,18 +201,14 @@
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.textBoxProduct);
             this.Controls.Add(this.richTextBoxMaterials);
-            this.Controls.Add(this.numericPlayerLeft);
-            this.Controls.Add(this.numericNewPlayer);
-            this.Controls.Add(this.numericPlayerNo);
+            this.Controls.Add(this.numericPlayer);
             this.Controls.Add(this.chartProfit);
-            this.Controls.Add(this.panelCoalition);
             this.Name = "CoopForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CoopForm";
             ((System.ComponentModel.ISupportInitialize)(this.chartProfit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPlayerNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericNewPlayer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericPlayerLeft)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericPlayer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,13 +216,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelCoalition;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartProfit;
-        private System.Windows.Forms.NumericUpDown numericPlayerNo;
-        private System.Windows.Forms.NumericUpDown numericNewPlayer;
-        private System.Windows.Forms.NumericUpDown numericPlayerLeft;
-        private System.Windows.Forms.RichTextBox richTextBoxMaterials;
-        private System.Windows.Forms.TextBox textBoxProduct;
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -222,5 +224,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonStop;
+        private System.Windows.Forms.Button buttonNewPlayer;
+        private System.Windows.Forms.Button buttonLeaver;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.NumericUpDown numericPlayer;
+        public System.Windows.Forms.RichTextBox richTextBoxMaterials;
+        public System.Windows.Forms.TextBox textBoxProduct;
     }
 }

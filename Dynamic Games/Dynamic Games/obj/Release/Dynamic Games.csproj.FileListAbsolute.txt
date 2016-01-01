@@ -12,3 +12,17 @@ F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\o
 F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csproj.GenerateResource.Cache
 F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.exe
 F:\C# Projekts\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.pdb
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe.config
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.exe
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.pdb
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csprojResolveAssemblyReference.cache
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.CoopForm.resources
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.IncInformationForm.resources
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.MenuForm.resources
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic_Games.Properties.Resources.resources
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\obj\Release\Dynamic Games.csproj.GenerateResource.Cache
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.exe
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\Dynamic Games.pdb
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\HandEvaluator.dll
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\HandEvaluator.pdb
+C:\Users\turan\Desktop\University\III. felev\Software engineering\Donate-Money-For-Unicorns-ubbse2015\Dynamic Games\Dynamic Games\bin\Release\HandEvaluator.xml
