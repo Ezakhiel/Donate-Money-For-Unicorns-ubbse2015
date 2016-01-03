@@ -131,5 +131,79 @@ namespace Dynamic_test
             int res = c.calculateMaximumValue();
             Assert.AreEqual(max, res);
         }
+        /// <summary>
+        /// #alfa    = átlagosan legenerált lapok száma
+        /// #epsilon = maximális eltérés
+        /// #gamma   = átlagtól való átlagos eltérés
+        /// </summary>
+       
+        [TestMethod]
+        public void CardStatTest()
+        {
+
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
+            String symbol = "c";
+            String nameHelper;
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int num = 1; num <= 9; num++)
+                {
+                    nameHelper = symbol + "0" + num.ToString();
+                    dictionary.Add(nameHelper, 0);
+                }
+                for (int num = 10; num <= 13; num++)
+                {
+                    nameHelper = symbol + num.ToString();
+                    dictionary.Add(nameHelper, 0);
+                }
+                switch (symbol)
+                {
+                    case "c":
+                        symbol = "d";
+                        break;
+                    case "d":
+                        symbol = "h";
+                        break;
+                    case "h":
+                        symbol = "s";
+                        break;
+                }
+
+            }
+
+            int n = 1000;
+
+            for (int j = 0; j < n; j++)
+            {
+                Dynamic_Games.IncInformation.Cards.Deck d = new Dynamic_Games.IncInformation.Cards.Deck();
+                for (int i = 0; i < 21; i++)
+                {
+                    Dynamic_Games.IncInformation.Cards.Card c = d.getCard();
+                    dictionary[c.CardName]++;
+                }
+            }
+
+            double alfa = n * 0.41;
+
+            double epsilon = 100;
+
+            bool result = true;
+
+            Console.WriteLine("Epsilon : " + epsilon + "      Alfa : " + alfa);
+
+            foreach (KeyValuePair<string, int> entry in dictionary)
+            {
+                Console.WriteLine("Key : " + entry.Key + "   Value: " + entry.Value + "     Gamma: " +(entry.Value - alfa));
+                if (Math.Abs(entry.Value - alfa)> epsilon)
+                {
+                    Console.WriteLine("FAILED");
+                    result = false;
+                }
+            }
+            Assert.IsTrue(result);
+        }
     }
+
 }
