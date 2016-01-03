@@ -50,10 +50,13 @@
             this.nrDefTB = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.MoneyTB = new System.Windows.Forms.TextBox();
             this.ruleCB = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.RestartButton = new System.Windows.Forms.Button();
+            this.RuleParamL = new System.Windows.Forms.Label();
+            this.RuleParamTB = new System.Windows.Forms.TextBox();
+            this.AutomaticButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +136,6 @@
             this.ContributorTB.ReadOnly = true;
             this.ContributorTB.Size = new System.Drawing.Size(100, 20);
             this.ContributorTB.TabIndex = 8;
-            this.ContributorTB.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // DefectorTB
             // 
@@ -201,9 +203,9 @@
             // 
             // graphBox
             // 
-            this.graphBox.Location = new System.Drawing.Point(37, 289);
+            this.graphBox.Location = new System.Drawing.Point(442, 140);
             this.graphBox.Name = "graphBox";
-            this.graphBox.Size = new System.Drawing.Size(709, 278);
+            this.graphBox.Size = new System.Drawing.Size(509, 427);
             this.graphBox.TabIndex = 16;
             this.graphBox.TabStop = false;
             // 
@@ -250,13 +252,13 @@
             this.label10.TabIndex = 22;
             this.label10.Text = "Money earned:";
             // 
-            // textBox1
+            // MoneyTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(779, 113);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(140, 20);
-            this.textBox1.TabIndex = 21;
+            this.MoneyTB.Location = new System.Drawing.Point(779, 113);
+            this.MoneyTB.Name = "MoneyTB";
+            this.MoneyTB.ReadOnly = true;
+            this.MoneyTB.Size = new System.Drawing.Size(140, 20);
+            this.MoneyTB.TabIndex = 21;
             // 
             // ruleCB
             // 
@@ -270,6 +272,7 @@
             this.ruleCB.Name = "ruleCB";
             this.ruleCB.Size = new System.Drawing.Size(140, 21);
             this.ruleCB.TabIndex = 24;
+            this.ruleCB.SelectedIndexChanged += new System.EventHandler(this.ruleCB_SelectedIndexChanged);
             // 
             // label11
             // 
@@ -283,7 +286,7 @@
             // RestartButton
             // 
             this.RestartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RestartButton.Location = new System.Drawing.Point(280, 252);
+            this.RestartButton.Location = new System.Drawing.Point(280, 286);
             this.RestartButton.Name = "RestartButton";
             this.RestartButton.Size = new System.Drawing.Size(140, 24);
             this.RestartButton.TabIndex = 25;
@@ -291,16 +294,46 @@
             this.RestartButton.UseVisualStyleBackColor = true;
             this.RestartButton.Click += new System.EventHandler(this.RestartButton_Click);
             // 
+            // RuleParamL
+            // 
+            this.RuleParamL.AutoSize = true;
+            this.RuleParamL.Location = new System.Drawing.Point(47, 155);
+            this.RuleParamL.Name = "RuleParamL";
+            this.RuleParamL.Size = new System.Drawing.Size(61, 13);
+            this.RuleParamL.TabIndex = 27;
+            this.RuleParamL.Text = "Neighbor%:";
+            // 
+            // RuleParamTB
+            // 
+            this.RuleParamTB.Location = new System.Drawing.Point(125, 155);
+            this.RuleParamTB.Name = "RuleParamTB";
+            this.RuleParamTB.Size = new System.Drawing.Size(140, 20);
+            this.RuleParamTB.TabIndex = 26;
+            // 
+            // AutomaticButton
+            // 
+            this.AutomaticButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AutomaticButton.Location = new System.Drawing.Point(280, 253);
+            this.AutomaticButton.Name = "AutomaticButton";
+            this.AutomaticButton.Size = new System.Drawing.Size(140, 24);
+            this.AutomaticButton.TabIndex = 28;
+            this.AutomaticButton.Text = "Automatic Step";
+            this.AutomaticButton.UseVisualStyleBackColor = true;
+            this.AutomaticButton.Click += new System.EventHandler(this.AutomaticButton_Click);
+            // 
             // NonCoopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 579);
+            this.Controls.Add(this.AutomaticButton);
+            this.Controls.Add(this.RuleParamL);
+            this.Controls.Add(this.RuleParamTB);
             this.Controls.Add(this.RestartButton);
             this.Controls.Add(this.ruleCB);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.MoneyTB);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.nrDefTB);
             this.Controls.Add(this.Cont);
@@ -333,14 +366,10 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox NoPTB;
-        private System.Windows.Forms.TextBox InvestmentTB;
-        private System.Windows.Forms.TextBox MultiTB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox GraphTypeCB;
         private System.Windows.Forms.TextBox ContributorTB;
         private System.Windows.Forms.TextBox DefectorTB;
         private System.Windows.Forms.Label label5;
@@ -355,9 +384,16 @@
         private System.Windows.Forms.TextBox nrDefTB;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox MoneyTB;
         private System.Windows.Forms.ComboBox ruleCB;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button RestartButton;
+        private System.Windows.Forms.Label RuleParamL;
+        private System.Windows.Forms.Button AutomaticButton;
+        public System.Windows.Forms.TextBox NoPTB;
+        public System.Windows.Forms.TextBox InvestmentTB;
+        public System.Windows.Forms.TextBox MultiTB;
+        public System.Windows.Forms.ComboBox GraphTypeCB;
+        public System.Windows.Forms.TextBox RuleParamTB;
     }
 }

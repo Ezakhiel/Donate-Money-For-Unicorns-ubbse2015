@@ -82,7 +82,7 @@
     <Compile Include="NonCoopForm.Designer.cs">
       <DependentUpon>NonCoopForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NonCoops\GenerateGraph.cs" />
+    <Compile Include="NonCoops\Rules.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CoopForm.resx">
@@ -93,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MenuForm.resx">
       <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NonCoopForm.resx">
+      <DependentUpon>NonCoopForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

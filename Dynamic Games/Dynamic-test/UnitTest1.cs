@@ -62,6 +62,35 @@ namespace Dynamic_test
         }
 
         [TestMethod]
+        public void InputNonCoopTest()
+        {
+            //(numericPlayer.Value == 0 || textBoxProduct.Text == "" || richTextBoxMaterials.Text == "")
+            NonCoopForm nonCoopTest = new NonCoopForm();
+
+            nonCoopTest.NoPTB.Text = "";
+            nonCoopTest.InvestmentTB.Text = "";
+            nonCoopTest.MultiTB.Text = "";
+            nonCoopTest.RuleParamTB.Text = "";
+            nonCoopTest.GraphTypeCB.Text = "";
+            Assert.IsFalse(nonCoopTest.checkParams());
+
+            nonCoopTest.NoPTB.Text = "30";
+            Assert.IsFalse(nonCoopTest.checkParams());
+
+            nonCoopTest.InvestmentTB.Text = "10";
+            Assert.IsFalse(nonCoopTest.checkParams());
+
+            nonCoopTest.MultiTB.Text = "5";
+            Assert.IsFalse(nonCoopTest.checkParams());
+
+            nonCoopTest.RuleParamTB.Text = "75";
+            Assert.IsFalse(nonCoopTest.checkParams());
+
+            nonCoopTest.GraphTypeCB.Text = "Random Graph";
+            Assert.IsTrue(nonCoopTest.checkParams());
+        }
+
+        [TestMethod]
         public void CoalitionMaxTest()
         {
             Coalition c = new Coalition(5);
