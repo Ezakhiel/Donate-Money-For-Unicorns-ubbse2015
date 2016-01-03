@@ -35,27 +35,27 @@ namespace Dynamic_Games
         {
             if (NoPTB.Text.Equals(""))
             {
-                MessageBox.Show(this,"Please enter the number of the players!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(this,"Please enter the number of the players!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if (InvestmentTB.Text.Equals(""))
             {
-                MessageBox.Show(this, "Please enter the investment!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(this, "Please enter the investment!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if (MultiTB.Text.Equals(""))
             {
-                MessageBox.Show(this, "Please enter the multiplication factor!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(this, "Please enter the multiplication factor!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if (RuleParamTB.Text.Equals(""))
             {
-                MessageBox.Show(this, "Please fill every textbox!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(this, "Please fill every textbox!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if (GraphTypeCB.Text.Equals(""))
             {
-                MessageBox.Show(this, "Please select the graph type!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show(this, "Please select the graph type!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
