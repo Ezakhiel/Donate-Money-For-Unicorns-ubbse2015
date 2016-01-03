@@ -7,4 +7,7 @@ Resources:
   -card-BMPs : card images
   
 How to build:
-    Open sln with Visual Studio 2012+
+	-Requirement: .NET Framework 4.0.30319
+	
+	-Run following line in command line:
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild "Dynamic Games\Dynamic Games\Dynamic Games.csproj" /p:Configuration=Release;DeployOnBuild=True;PackageAsSingleFile=True;outdir="..\..\bin\
