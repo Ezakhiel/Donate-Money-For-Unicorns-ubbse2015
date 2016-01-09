@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuForm));
             this.buttonNonCoop = new System.Windows.Forms.Button();
             this.buttonCoop = new System.Windows.Forms.Button();
             this.buttonIncompInf = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@
             this.Controls.Add(this.buttonIncompInf);
             this.Controls.Add(this.buttonCoop);
             this.Controls.Add(this.buttonNonCoop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dynamic Games";
