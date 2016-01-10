@@ -53,11 +53,12 @@
     <Compile Include="CoopForm.Designer.cs">
       <DependentUpon>CoopForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="coop\backend\Controller.cs" />
-    <Compile Include="coop\backend\EquilibriumCalculator.cs" />
-    <Compile Include="coop\models\Coalition.cs" />
-    <Compile Include="coop\models\Player.cs" />
-    <Compile Include="coop\models\ValueFunction.cs" />
+    <Compile Include="Coop\Backend\Controller.cs" />
+    <Compile Include="Coop\Backend\EquilibriumCalculator.cs" />
+    <Compile Include="Coop\Dynamic\DynamicBacktrack.cs" />
+    <Compile Include="Coop\Models\Coalition.cs" />
+    <Compile Include="Coop\Models\Player.cs" />
+    <Compile Include="Coop\Models\ValueFunction.cs" />
     <Compile Include="IncInformation\Cards\Deck.cs" />
     <Compile Include="IncInformation\Player\AIPlayer.cs" />
     <Compile Include="IncInformation\Cards\Card.cs" />
@@ -99,18 +100,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -288,7 +289,15 @@
       <Name>HandEvaluator</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

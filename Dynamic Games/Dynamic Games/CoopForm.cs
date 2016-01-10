@@ -70,21 +70,27 @@ namespace Dynamic_Games
         {
             if (CheckFill())
             {
-                if (buttonStart.Text == "Start")
+                if (buttonStart.Text == "   Start")
                 {
-                    buttonStart.Text = "Pause";
+                    buttonStart.Text = "   Pause";
+                    buttonStart.Image = Dynamic_Games.Properties.Resources.pause;
                     buttonClear.Enabled = false;
+                    buttonStop.Enabled = true;
                     FillDataGrid();
                 }
-                else if (buttonStart.Text == "Pause")
+                else if (buttonStart.Text == "   Pause")
                 {
-                    buttonStart.Text = "Resume";
+                    buttonStart.Text = "   Resume";
+                    buttonStart.Image = Dynamic_Games.Properties.Resources.play;
                     buttonClear.Enabled = true;
+                    buttonStop.Enabled = true;
                 }
                 else
                 {
-                    buttonStart.Text = "Pause";
+                    buttonStart.Text = "   Pause";
+                    buttonStart.Image = Dynamic_Games.Properties.Resources.pause;
                     buttonClear.Enabled = false;
+                    buttonStop.Enabled = true;
                 }
             }
             else
@@ -98,6 +104,7 @@ namespace Dynamic_Games
             buttonStart.Text = "Start";
             buttonStart.Enabled = false;
             buttonClear.Enabled = true;
+            buttonStop.Enabled = false;
         }
 
         //clear button
@@ -107,6 +114,7 @@ namespace Dynamic_Games
             initInput();
             buttonStart.Enabled = true;
             buttonStop.Enabled = false;
+            buttonClear.Enabled = false;
         }
 
         private CColor GetRandomColor()
@@ -123,6 +131,11 @@ namespace Dynamic_Games
                 dgvCoalition.Rows.Add("P" + (i + 1));
                 dgvCoalition.Rows[i].Cells[0].Style.ForeColor = GetRandomColor();
                 dgvCoalition.DefaultCellStyle.Font = new Font(Font, FontStyle.Bold);
+            }
+
+            for (int i = 0; i < numericPlayer.Value; i++)
+            {
+
             }
         }
 

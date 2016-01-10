@@ -215,12 +215,11 @@
             // 
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.buttonClear.Image = global::Dynamic_Games.Properties.Resources.pause;
             this.buttonClear.Location = new System.Drawing.Point(518, 463);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(108, 34);
             this.buttonClear.TabIndex = 18;
-            this.buttonClear.Text = "   Clear";
+            this.buttonClear.Text = "Clear";
             this.buttonClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
@@ -229,7 +228,7 @@
             // 
             this.buttonStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.buttonStop.Image = global::Dynamic_Games.Properties.Resources.play;
+            this.buttonStop.Image = global::Dynamic_Games.Properties.Resources.stop;
             this.buttonStop.Location = new System.Drawing.Point(578, 414);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(108, 34);
@@ -243,7 +242,7 @@
             // 
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.buttonStart.Image = global::Dynamic_Games.Properties.Resources.p2;
+            this.buttonStart.Image = ((System.Drawing.Image)(resources.GetObject("buttonStart.Image")));
             this.buttonStart.Location = new System.Drawing.Point(457, 414);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(108, 34);
