@@ -28,14 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.NoPTB = new System.Windows.Forms.TextBox();
             this.InvestmentTB = new System.Windows.Forms.TextBox();
             this.MultiTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.GraphTypeCB = new System.Windows.Forms.ComboBox();
             this.ContributorTB = new System.Windows.Forms.TextBox();
             this.DefectorTB = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,26 +59,32 @@
             this.RuleParamL = new System.Windows.Forms.Label();
             this.RuleParamTB = new System.Windows.Forms.TextBox();
             this.AutomaticButton = new System.Windows.Forms.Button();
+            this.LineChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.AddPlayerButton = new System.Windows.Forms.Button();
+            this.DelPlayerButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LineChart)).BeginInit();
             this.SuspendLayout();
             // 
             // NoPTB
             // 
-            this.NoPTB.Location = new System.Drawing.Point(125, 35);
+            this.NoPTB.Location = new System.Drawing.Point(124, 45);
             this.NoPTB.Name = "NoPTB";
             this.NoPTB.Size = new System.Drawing.Size(140, 20);
             this.NoPTB.TabIndex = 0;
             // 
             // InvestmentTB
             // 
-            this.InvestmentTB.Location = new System.Drawing.Point(125, 73);
+            this.InvestmentTB.Location = new System.Drawing.Point(124, 85);
             this.InvestmentTB.Name = "InvestmentTB";
             this.InvestmentTB.Size = new System.Drawing.Size(140, 20);
             this.InvestmentTB.TabIndex = 1;
             // 
             // MultiTB
             // 
-            this.MultiTB.Location = new System.Drawing.Point(125, 116);
+            this.MultiTB.Location = new System.Drawing.Point(124, 125);
             this.MultiTB.Name = "MultiTB";
             this.MultiTB.Size = new System.Drawing.Size(140, 20);
             this.MultiTB.TabIndex = 2;
@@ -84,7 +92,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 38);
+            this.label1.Location = new System.Drawing.Point(11, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 3;
@@ -93,7 +101,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(46, 73);
+            this.label2.Location = new System.Drawing.Point(45, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 4;
@@ -102,36 +110,15 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 116);
+            this.label3.Location = new System.Drawing.Point(11, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Multiplication Factor:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(338, 76);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Graph Type:";
-            // 
-            // GraphTypeCB
-            // 
-            this.GraphTypeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GraphTypeCB.FormattingEnabled = true;
-            this.GraphTypeCB.Items.AddRange(new object[] {
-            "Random Graph",
-            "Small World Graph"});
-            this.GraphTypeCB.Location = new System.Drawing.Point(421, 73);
-            this.GraphTypeCB.Name = "GraphTypeCB";
-            this.GraphTypeCB.Size = new System.Drawing.Size(140, 21);
-            this.GraphTypeCB.TabIndex = 7;
-            // 
             // ContributorTB
             // 
-            this.ContributorTB.Location = new System.Drawing.Point(106, 221);
+            this.ContributorTB.Location = new System.Drawing.Point(550, 50);
             this.ContributorTB.Name = "ContributorTB";
             this.ContributorTB.ReadOnly = true;
             this.ContributorTB.Size = new System.Drawing.Size(100, 20);
@@ -139,7 +126,7 @@
             // 
             // DefectorTB
             // 
-            this.DefectorTB.Location = new System.Drawing.Point(106, 256);
+            this.DefectorTB.Location = new System.Drawing.Point(550, 85);
             this.DefectorTB.Name = "DefectorTB";
             this.DefectorTB.ReadOnly = true;
             this.DefectorTB.Size = new System.Drawing.Size(100, 20);
@@ -148,7 +135,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 224);
+            this.label5.Location = new System.Drawing.Point(478, 53);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 13);
             this.label5.TabIndex = 10;
@@ -157,7 +144,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 259);
+            this.label6.Location = new System.Drawing.Point(478, 88);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 11;
@@ -167,7 +154,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(33, 180);
+            this.label7.Location = new System.Drawing.Point(477, 9);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(75, 22);
             this.label7.TabIndex = 12;
@@ -176,7 +163,7 @@
             // StartButton
             // 
             this.StartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.StartButton.Location = new System.Drawing.Point(280, 218);
+            this.StartButton.Location = new System.Drawing.Point(295, 45);
             this.StartButton.Name = "StartButton";
             this.StartButton.Size = new System.Drawing.Size(140, 24);
             this.StartButton.TabIndex = 13;
@@ -187,7 +174,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(665, 37);
+            this.label8.Location = new System.Drawing.Point(672, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(93, 13);
             this.label8.TabIndex = 15;
@@ -195,7 +182,7 @@
             // 
             // NrCoopTB
             // 
-            this.NrCoopTB.Location = new System.Drawing.Point(775, 37);
+            this.NrCoopTB.Location = new System.Drawing.Point(782, 82);
             this.NrCoopTB.Name = "NrCoopTB";
             this.NrCoopTB.ReadOnly = true;
             this.NrCoopTB.Size = new System.Drawing.Size(140, 20);
@@ -203,7 +190,7 @@
             // 
             // graphBox
             // 
-            this.graphBox.Location = new System.Drawing.Point(442, 140);
+            this.graphBox.Location = new System.Drawing.Point(444, 199);
             this.graphBox.Name = "graphBox";
             this.graphBox.Size = new System.Drawing.Size(509, 427);
             this.graphBox.TabIndex = 16;
@@ -211,7 +198,7 @@
             // 
             // percTB
             // 
-            this.percTB.Location = new System.Drawing.Point(421, 34);
+            this.percTB.Location = new System.Drawing.Point(782, 42);
             this.percTB.Name = "percTB";
             this.percTB.ReadOnly = true;
             this.percTB.Size = new System.Drawing.Size(140, 20);
@@ -220,7 +207,7 @@
             // Cont
             // 
             this.Cont.AutoSize = true;
-            this.Cont.Location = new System.Drawing.Point(338, 38);
+            this.Cont.Location = new System.Drawing.Point(695, 49);
             this.Cont.Name = "Cont";
             this.Cont.Size = new System.Drawing.Size(70, 13);
             this.Cont.TabIndex = 18;
@@ -228,7 +215,7 @@
             // 
             // nrDefTB
             // 
-            this.nrDefTB.Location = new System.Drawing.Point(775, 70);
+            this.nrDefTB.Location = new System.Drawing.Point(782, 115);
             this.nrDefTB.Name = "nrDefTB";
             this.nrDefTB.ReadOnly = true;
             this.nrDefTB.Size = new System.Drawing.Size(140, 20);
@@ -237,7 +224,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(676, 73);
+            this.label9.Location = new System.Drawing.Point(683, 118);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(82, 13);
             this.label9.TabIndex = 20;
@@ -246,7 +233,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(680, 116);
+            this.label10.Location = new System.Drawing.Point(687, 161);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 13);
             this.label10.TabIndex = 22;
@@ -254,7 +241,7 @@
             // 
             // MoneyTB
             // 
-            this.MoneyTB.Location = new System.Drawing.Point(779, 113);
+            this.MoneyTB.Location = new System.Drawing.Point(786, 158);
             this.MoneyTB.Name = "MoneyTB";
             this.MoneyTB.ReadOnly = true;
             this.MoneyTB.Size = new System.Drawing.Size(140, 20);
@@ -268,7 +255,7 @@
             "Neighbors Decide",
             "Mult. Fact. Grows",
             "Minimum Percentage"});
-            this.ruleCB.Location = new System.Drawing.Point(421, 113);
+            this.ruleCB.Location = new System.Drawing.Point(124, 205);
             this.ruleCB.Name = "ruleCB";
             this.ruleCB.Size = new System.Drawing.Size(140, 21);
             this.ruleCB.TabIndex = 24;
@@ -277,7 +264,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(369, 119);
+            this.label11.Location = new System.Drawing.Point(72, 208);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 23;
@@ -286,7 +273,7 @@
             // RestartButton
             // 
             this.RestartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.RestartButton.Location = new System.Drawing.Point(280, 286);
+            this.RestartButton.Location = new System.Drawing.Point(295, 185);
             this.RestartButton.Name = "RestartButton";
             this.RestartButton.Size = new System.Drawing.Size(140, 24);
             this.RestartButton.TabIndex = 25;
@@ -297,7 +284,7 @@
             // RuleParamL
             // 
             this.RuleParamL.AutoSize = true;
-            this.RuleParamL.Location = new System.Drawing.Point(47, 155);
+            this.RuleParamL.Location = new System.Drawing.Point(46, 168);
             this.RuleParamL.Name = "RuleParamL";
             this.RuleParamL.Size = new System.Drawing.Size(61, 13);
             this.RuleParamL.TabIndex = 27;
@@ -305,7 +292,7 @@
             // 
             // RuleParamTB
             // 
-            this.RuleParamTB.Location = new System.Drawing.Point(125, 155);
+            this.RuleParamTB.Location = new System.Drawing.Point(124, 165);
             this.RuleParamTB.Name = "RuleParamTB";
             this.RuleParamTB.Size = new System.Drawing.Size(140, 20);
             this.RuleParamTB.TabIndex = 26;
@@ -313,7 +300,7 @@
             // AutomaticButton
             // 
             this.AutomaticButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AutomaticButton.Location = new System.Drawing.Point(280, 253);
+            this.AutomaticButton.Location = new System.Drawing.Point(295, 80);
             this.AutomaticButton.Name = "AutomaticButton";
             this.AutomaticButton.Size = new System.Drawing.Size(140, 24);
             this.AutomaticButton.TabIndex = 28;
@@ -321,11 +308,80 @@
             this.AutomaticButton.UseVisualStyleBackColor = true;
             this.AutomaticButton.Click += new System.EventHandler(this.AutomaticButton_Click);
             // 
+            // LineChart
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.LineChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.LineChart.Legends.Add(legend2);
+            this.LineChart.Location = new System.Drawing.Point(37, 259);
+            this.LineChart.Name = "LineChart";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series3.Legend = "Legend1";
+            series3.Name = "C";
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series4.Legend = "Legend1";
+            series4.Name = "D";
+            this.LineChart.Series.Add(series3);
+            this.LineChart.Series.Add(series4);
+            this.LineChart.Size = new System.Drawing.Size(383, 367);
+            this.LineChart.TabIndex = 29;
+            this.LineChart.Text = "chart1";
+            // 
+            // AddPlayerButton
+            // 
+            this.AddPlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddPlayerButton.Location = new System.Drawing.Point(295, 115);
+            this.AddPlayerButton.Name = "AddPlayerButton";
+            this.AddPlayerButton.Size = new System.Drawing.Size(140, 24);
+            this.AddPlayerButton.TabIndex = 30;
+            this.AddPlayerButton.Text = "Player Comes";
+            this.AddPlayerButton.UseVisualStyleBackColor = true;
+            this.AddPlayerButton.Click += new System.EventHandler(this.AddPlayerButton_Click);
+            // 
+            // DelPlayerButton
+            // 
+            this.DelPlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.DelPlayerButton.Location = new System.Drawing.Point(295, 150);
+            this.DelPlayerButton.Name = "DelPlayerButton";
+            this.DelPlayerButton.Size = new System.Drawing.Size(140, 24);
+            this.DelPlayerButton.TabIndex = 31;
+            this.DelPlayerButton.Text = "Player Leaves";
+            this.DelPlayerButton.UseVisualStyleBackColor = true;
+            this.DelPlayerButton.Click += new System.EventHandler(this.DelPlayerButton_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(12, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(107, 22);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Parameters:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label12.Location = new System.Drawing.Point(707, 9);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 22);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "Info:";
+            // 
             // NonCoopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 579);
+            this.ClientSize = new System.Drawing.Size(977, 642);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.DelPlayerButton);
+            this.Controls.Add(this.AddPlayerButton);
+            this.Controls.Add(this.LineChart);
             this.Controls.Add(this.AutomaticButton);
             this.Controls.Add(this.RuleParamL);
             this.Controls.Add(this.RuleParamTB);
@@ -347,8 +403,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.DefectorTB);
             this.Controls.Add(this.ContributorTB);
-            this.Controls.Add(this.GraphTypeCB);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -359,6 +413,7 @@
             this.Text = "NonCoopForm";
             this.Load += new System.EventHandler(this.NonCoopForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LineChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -369,7 +424,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox ContributorTB;
         private System.Windows.Forms.TextBox DefectorTB;
         private System.Windows.Forms.Label label5;
@@ -393,7 +447,11 @@
         public System.Windows.Forms.TextBox NoPTB;
         public System.Windows.Forms.TextBox InvestmentTB;
         public System.Windows.Forms.TextBox MultiTB;
-        public System.Windows.Forms.ComboBox GraphTypeCB;
         public System.Windows.Forms.TextBox RuleParamTB;
+        private System.Windows.Forms.DataVisualization.Charting.Chart LineChart;
+        private System.Windows.Forms.Button AddPlayerButton;
+        private System.Windows.Forms.Button DelPlayerButton;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label12;
     }
 }

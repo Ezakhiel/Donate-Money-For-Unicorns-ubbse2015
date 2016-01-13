@@ -36,7 +36,7 @@ namespace Dynamic_Games
                     }
                 }
 
-                if (defNr >= (int)(neighborCont[i] * ruleParam / 100))
+                if (neighborCont[i] > 0 && defNr >= (int)(neighborCont[i] * ruleParam / 100))
                 {
                     newColors[i] = 1;
                 }
@@ -56,6 +56,55 @@ namespace Dynamic_Games
                 multFact += multFact * 10 / 100;
             }
             return multFact;
+        }
+
+        public int[] NeighborsAndSelflesness(int N, int[,] checkMatrix, int[] colors, int ruleParam, int[] selflesness, float moneyBefore, int c)
+        {
+            Random rand = new Random();
+
+            int[] neighborCont = new int[N];
+            for (int i = 0; i < N; i++)
+            {
+                for (int j = 0; j < N; j++)
+                {
+                    if (checkMatrix[i, j] != 0)
+                    {
+                        neighborCont[i]++;
+                    }
+                }
+            }
+
+            int[] newColors = new int[N];
+            for (int i = 0; i < N; i++)
+            {
+                int defNr = 0;
+                for (int j = 0; j < N; j++)
+                {
+
+                    if (checkMatrix[i, j] != 0 && colors[j] == 1)
+                    {
+                        defNr++;
+                    }
+                }
+
+                if (defNr >= (int)(neighborCont[i] * ruleParam / 100))
+                {
+                    newColors[i] = 1;
+                }
+                else
+                {
+                    if (moneyBefore < c && rand.Next(100) > selflesness[i])
+                    {
+                        newColors[i] = 2;
+                    }
+                    else
+                    {
+                        newColors[i] = 1;
+                    }
+                }
+            }
+
+            return newColors;
         }
     }
 }
