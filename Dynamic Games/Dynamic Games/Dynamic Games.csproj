@@ -92,6 +92,7 @@
     <Compile Include="NonCoops\NonCoopEquil\PAES.cs" />
     <Compile Include="NonCoops\NonCoopEquil\Payoffs.cs" />
     <Compile Include="NonCoops\NonCoopEquil\Solution.cs" />
+    <Compile Include="NonCoops\NonCoopManager.cs" />
     <Compile Include="NonCoops\Rules.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

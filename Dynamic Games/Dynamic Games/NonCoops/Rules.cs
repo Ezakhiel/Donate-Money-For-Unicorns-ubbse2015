@@ -58,6 +58,68 @@ namespace Dynamic_Games
             return multFact;
         }
 
+        public int[] SelflesnessMultFactGrows(int N, float pd, int c, float[] moneyArr, float[] investmentArr, int[] selflessness, int[] colors)
+        {
+            float moneyBefore = 0, investmentBefore = 0, counter = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if (moneyArr[i] != -1)
+                {
+                    Console.WriteLine("MoneyArr[" + i + "] = " + moneyArr[i]);
+                    moneyBefore += moneyArr[i];
+                    investmentBefore += investmentArr[i];
+                    counter++;
+                }
+            }
+
+            moneyBefore /= counter; investmentBefore /= counter;
+            Console.WriteLine("MoneyBefore: " + moneyBefore);
+
+            int[] newColors = new int[N];
+            Random rand = new Random();
+
+            for (int i = 0; i < N; i++)
+            {
+                Console.WriteLine(i + ". selflesness: " + selflessness[i]);
+            }
+
+            int howSelflessIAm = 0;
+            for (int i = 0; i < N; i++)
+            {
+                if (colors[i] == 1)
+                {
+                    howSelflessIAm = rand.Next(100);
+                    Console.WriteLine(i + " - RED - How Selfless I Am: " + howSelflessIAm);
+                    if (howSelflessIAm < selflessness[i] && pd < moneyBefore)
+                    {
+                        newColors[i] = 2;
+                    }
+                    else
+                    {
+                        newColors[i] = 1;
+                    }
+                }
+                else
+                {
+                    howSelflessIAm = rand.Next(100);
+                    Console.WriteLine(i + " - GREEN - How Selfless I Am: " + howSelflessIAm);
+                    if (selflessness[i] > 91)
+                    {
+                        newColors[i] = 2;
+                    }
+                    else if (pd > c && howSelflessIAm < selflessness[i])
+                    {
+                        newColors[i] = 2;
+                    }
+                    else
+                    {
+                        newColors[i] = 1;
+                    }
+                }
+            }
+            return newColors;
+        }
+
         public int[] NeighborsAndSelflesness(int N, int[,] checkMatrix, int[] colors, int ruleParam, int[] selflesness, float moneyBefore, int c)
         {
             Random rand = new Random();
