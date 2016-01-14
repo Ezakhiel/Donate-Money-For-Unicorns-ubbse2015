@@ -64,6 +64,7 @@
             this.DelPlayerButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.EquilButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LineChart)).BeginInit();
             this.SuspendLayout();
@@ -372,11 +373,22 @@
             this.label12.TabIndex = 33;
             this.label12.Text = "Info:";
             // 
+            // EquilButton
+            // 
+            this.EquilButton.Location = new System.Drawing.Point(500, 150);
+            this.EquilButton.Name = "EquilButton";
+            this.EquilButton.Size = new System.Drawing.Size(75, 23);
+            this.EquilButton.TabIndex = 34;
+            this.EquilButton.Text = "Equil";
+            this.EquilButton.UseVisualStyleBackColor = true;
+            this.EquilButton.Click += new System.EventHandler(this.EquilButton_Click);
+            // 
             // NonCoopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(977, 642);
+            this.Controls.Add(this.EquilButton);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.DelPlayerButton);
@@ -453,5 +465,6 @@
         private System.Windows.Forms.Button DelPlayerButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button EquilButton;
     }
 }

@@ -83,6 +83,15 @@
     <Compile Include="NonCoopForm.Designer.cs">
       <DependentUpon>NonCoopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NonCoops\NonCoopEquil\NonCoopEquilForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NonCoops\NonCoopEquil\NonCoopEquilForm.designer.cs">
+      <DependentUpon>NonCoopEquilForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NonCoops\NonCoopEquil\PAES.cs" />
+    <Compile Include="NonCoops\NonCoopEquil\Payoffs.cs" />
+    <Compile Include="NonCoops\NonCoopEquil\Solution.cs" />
     <Compile Include="NonCoops\Rules.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NonCoopForm.resx">
       <DependentUpon>NonCoopForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NonCoops\NonCoopEquil\NonCoopEquilForm.resx">
+      <DependentUpon>NonCoopEquilForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -298,6 +310,7 @@
   <ItemGroup>
     <None Include="Resources\pause.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace Dynamic_Games
 {
     public partial class NonCoopForm : Form
@@ -695,6 +696,15 @@ namespace Dynamic_Games
             selflesness = tmpSelflesness;
 
             DrawGraph();
+        }
+
+        private void EquilButton_Click(object sender, EventArgs e)
+        {
+            var equilForm = new NonCoopEquilForm();
+            this.Hide();
+            equilForm.ShowDialog();
+            // When new form DioalogResult = ok
+            this.Show();
         }
         
     }
