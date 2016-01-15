@@ -10,7 +10,7 @@ namespace Dynamic_Games.coop.backend
 {
     interface EquilibriumCalculator
     {
-        void init();
+        void init(Player[] players, int m);
 
         List<Coalition> getPartialResult();
     }

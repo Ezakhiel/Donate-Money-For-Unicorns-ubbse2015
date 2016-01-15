@@ -6,11 +6,17 @@ using System.Threading.Tasks;
 
 namespace Dynamic_Games.coop.models
 {
-    public class Coalition
+    class Coalition
     {
-        List<Player> players;
-        long maximumValue;
-        int[] materials;
+        private List<Player> players;
+        private bool maximumCalculated;
+        private Double maximumValue;
+        private int[] materials;
+
+        public List<Player> Players
+        {
+            get { return players; }
+        }
 
         public Coalition(int m)
         {
@@ -18,33 +24,62 @@ namespace Dynamic_Games.coop.models
             materials = new int[m];
         }
 
-        public int calculateMaximumValue(){
-            //TODO: calculate maximum value by players
-            int max = 0;
-            for (int i = 0; i < materials.Length; i++)
-            {
-                if (materials[i] > max)
-                {
-                    max = materials[i];
-                }
-            }
-            return max;
-        }
-
         public void addPlayer(Player player)
         {
             if (player.Materials.Length > materials.Length)
             {
                 //TODO: create exception
-                //throw new Exception();
+                throw new Exception();
             }
             players.Add(player);
             materials = materials.Zip(player.Materials, (x, y) => x + y).ToArray<int>();
+            maximumCalculated = false;
         }
 
-        public long getMaximumValue()
+        public void removePlayer(Player player)
         {
+            if (player.Materials.Length > materials.Length)
+            {
+                //TODO: create exception
+                throw new Exception();
+            }
+            players.Remove(player);
+            materials = materials.Zip(player.Materials, (x, y) => x - y).ToArray<int>();
+            maximumCalculated = false;
+        }
+
+        private void calculateMaximumValue()
+        {
+            maximumValue = 0;
+            bool init = true;
+            foreach (var player in players)
+            {
+                var value = player.ValueFunction.getValue(materials);
+                if (value > maximumValue || init)
+                {
+                    maximumValue = value;
+                    init = false;
+                }
+            }
+            maximumCalculated = true;
+        }
+
+        public Double getMaximumValue()
+        {
+            if (!maximumCalculated)
+                calculateMaximumValue();
             return maximumValue;
+        }
+
+        public override String ToString()
+        {
+            String result = "(";
+            foreach (Player a in players)
+            {
+                result += a.ToString() + ",";
+            }
+            result = result.Remove(result.Length - 1, 1) + ")";
+            return result;
         }
     }
 }

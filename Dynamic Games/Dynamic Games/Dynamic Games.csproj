@@ -53,6 +53,7 @@
     <Compile Include="CoopForm.Designer.cs">
       <DependentUpon>CoopForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Coop\Backend\AnytimeAlgorithm.cs" />
     <Compile Include="Coop\Backend\Controller.cs" />
     <Compile Include="Coop\Backend\EquilibriumCalculator.cs" />
     <Compile Include="Coop\Models\Coalition.cs" />
