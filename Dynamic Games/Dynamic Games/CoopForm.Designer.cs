@@ -32,8 +32,8 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoopForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CoopForm));
             this.chartProfit = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.numericPlayer = new System.Windows.Forms.NumericUpDown();
             this.richTextBoxMaterials = new System.Windows.Forms.RichTextBox();
@@ -46,11 +46,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBoxWinning = new System.Windows.Forms.RichTextBox();
             this.dgvCoalition = new System.Windows.Forms.DataGridView();
+            this.Coalitions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonStop = new System.Windows.Forms.Button();
             this.buttonStart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Coalitions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.chartProfit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPlayer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCoalition)).BeginInit();
@@ -145,6 +145,7 @@
             this.buttonNewPlayer.TabIndex = 13;
             this.buttonNewPlayer.Text = "+1 player";
             this.buttonNewPlayer.UseVisualStyleBackColor = false;
+            this.buttonNewPlayer.Click += new System.EventHandler(this.buttonNewPlayer_Click);
             // 
             // buttonLeaver
             // 
@@ -156,6 +157,7 @@
             this.buttonLeaver.TabIndex = 14;
             this.buttonLeaver.Text = "-1 player";
             this.buttonLeaver.UseVisualStyleBackColor = false;
+            this.buttonLeaver.Click += new System.EventHandler(this.buttonLeaver_Click);
             // 
             // label4
             // 
@@ -205,6 +207,19 @@
             this.dgvCoalition.TabIndex = 15;
             this.dgvCoalition.SelectionChanged += new System.EventHandler(this.dataGridViewCoalition_SelectionChanged);
             // 
+            // Coalitions
+            // 
+            this.Coalitions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Coalitions.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Coalitions.FillWeight = 300F;
+            this.Coalitions.HeaderText = "Coalitions";
+            this.Coalitions.MinimumWidth = 542;
+            this.Coalitions.Name = "Coalitions";
+            this.Coalitions.ReadOnly = true;
+            this.Coalitions.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Coalitions.Width = 542;
+            // 
             // buttonClear
             // 
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -250,19 +265,6 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Coalitions
-            // 
-            this.Coalitions.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Coalitions.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Coalitions.FillWeight = 300F;
-            this.Coalitions.HeaderText = "Coalitions";
-            this.Coalitions.MinimumWidth = 542;
-            this.Coalitions.Name = "Coalitions";
-            this.Coalitions.ReadOnly = true;
-            this.Coalitions.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Coalitions.Width = 542;
             // 
             // CoopForm
             // 

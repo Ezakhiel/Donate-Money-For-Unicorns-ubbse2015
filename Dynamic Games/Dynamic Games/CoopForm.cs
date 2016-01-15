@@ -15,7 +15,6 @@ namespace Dynamic_Games
     public partial class CoopForm : Form
     {
         Random randomGen = new Random();
-        bool isClicked = false;
 
         //close the form
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -74,11 +73,10 @@ namespace Dynamic_Games
 
                     //var winningTokenized = tokenizer(richTextBoxWinning.Text);
                     var materialsTokenized = tokenizer(richTextBoxMaterials.Text);
-
                     DgvFirstRow();
+                    chart();
                     FillDataGrid();
 
-                    isClicked = false;
                     timer1.Enabled = true;
                 }
                 else if (buttonStart.Text == "   Pause")
@@ -87,7 +85,6 @@ namespace Dynamic_Games
                     buttonStart.Image = Dynamic_Games.Properties.Resources.play;
                     buttonClear.Enabled = true;
                     buttonStop.Enabled = true;
-                    isClicked = true;
                     timer1.Enabled = false;
                 }
                 else
@@ -96,7 +93,6 @@ namespace Dynamic_Games
                     buttonStart.Image = Dynamic_Games.Properties.Resources.pause;
                     buttonClear.Enabled = false;
                     buttonStop.Enabled = true;
-                    isClicked = false;
                     timer1.Enabled = true;
                 }
             }
@@ -113,7 +109,6 @@ namespace Dynamic_Games
             buttonStart.Enabled = false;
             buttonClear.Enabled = true;
             buttonStop.Enabled = false;
-            isClicked = true;
             timer1.Enabled = false;
         }
 
@@ -172,6 +167,7 @@ namespace Dynamic_Games
         // fill the datagrid with coalition
         private void FillDataGrid()
         {
+            Decimal.ToInt32(numericPlayer.Value);
             for (int i = 0; i < 1; i++)
             {
                 var coal = BackTrack(Decimal.ToInt32(numericPlayer.Value));
@@ -189,7 +185,35 @@ namespace Dynamic_Games
 
         private void chart()
         {
-           // for(int i = 0; i < )
+            List<long> winningFunc = new List<long>();
+            List<string> coal = new List<string>();
+            int count = 0;
+            int rnd;
+            
+            coal = BackTrack(Decimal.ToInt32(numericPlayer.Value));
+            for (int i = 0; i < coal.Count; i++)
+            {
+                if (coal[i] == ")    ")
+                {
+                    count++;
+                }
+            }
+
+            int count2 = count;
+            while (count2 > 0)
+            {
+                rnd = randomGen.Next(35, 300);
+                winningFunc.Add(rnd);
+                count2--;
+            }
+
+            chartProfit.ChartAreas[0].AxisY.Minimum = 15;
+            chartProfit.ChartAreas[0].AxisY.Maximum = 300;
+
+            for (int j = 0; j < count; j++)
+            {
+                chartProfit.Series["Coalitions"].Points.AddY(winningFunc[j]);
+            }
         }
 
         private List<string> GetPlayersArray(int numberOfPlayers)
@@ -307,6 +331,21 @@ namespace Dynamic_Games
             //int leftPlayers = Decimal.ToInt32(numericPlayer.Value) - 1;
 
             FillDataGrid();
+            foreach (var series in chartProfit.Series)
+            {
+                series.Points.Clear();
+            }
+            chart();
+        }
+
+        private void buttonNewPlayer_Click(object sender, EventArgs e)
+        {
+            numericPlayer.Value += 1;
+        }
+
+        private void buttonLeaver_Click(object sender, EventArgs e)
+        {
+            numericPlayer.Value -= 1;
         }
     }
 }
