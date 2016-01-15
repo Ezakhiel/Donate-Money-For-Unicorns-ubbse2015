@@ -160,7 +160,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(669, 295);
+            this.label4.Location = new System.Drawing.Point(678, 295);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 13);
             this.label4.TabIndex = 17;
@@ -223,7 +223,7 @@
             // 
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.buttonClear.Location = new System.Drawing.Point(660, 456);
+            this.buttonClear.Location = new System.Drawing.Point(665, 456);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(108, 34);
             this.buttonClear.TabIndex = 18;
