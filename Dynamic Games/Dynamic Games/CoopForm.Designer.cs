@@ -44,7 +44,7 @@
             this.buttonNewPlayer = new System.Windows.Forms.Button();
             this.buttonLeaver = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBoxWinning = new System.Windows.Forms.RichTextBox();
+            this.richTextBoxPlayerFunc = new System.Windows.Forms.RichTextBox();
             this.dgvCoalition = new System.Windows.Forms.DataGridView();
             this.Coalitions = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonClear = new System.Windows.Forms.Button();
@@ -59,20 +59,23 @@
             // chartProfit
             // 
             this.chartProfit.BackColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisX.Title = "Coalitions";
+            chartArea1.AxisY.Title = "Winning rate";
             chartArea1.Name = "ChartArea1";
             this.chartProfit.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chartProfit.Legends.Add(legend1);
-            this.chartProfit.Location = new System.Drawing.Point(12, 261);
+            this.chartProfit.Location = new System.Drawing.Point(12, 248);
             this.chartProfit.Name = "chartProfit";
+            this.chartProfit.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.ChartArea = "ChartArea1";
-            series1.Color = System.Drawing.Color.White;
+            series1.Color = System.Drawing.Color.MediumSeaGreen;
             series1.Legend = "Legend1";
             series1.Name = "Coalitions";
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
             series1.YValuesPerPoint = 3;
             this.chartProfit.Series.Add(series1);
-            this.chartProfit.Size = new System.Drawing.Size(385, 230);
+            this.chartProfit.Size = new System.Drawing.Size(407, 243);
             this.chartProfit.TabIndex = 0;
             this.chartProfit.Text = "Winning function";
             // 
@@ -83,11 +86,6 @@
             this.numericPlayer.Name = "numericPlayer";
             this.numericPlayer.Size = new System.Drawing.Size(144, 20);
             this.numericPlayer.TabIndex = 1;
-            this.numericPlayer.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
             // 
             // richTextBoxMaterials
             // 
@@ -96,7 +94,7 @@
             this.richTextBoxMaterials.Name = "richTextBoxMaterials";
             this.richTextBoxMaterials.Size = new System.Drawing.Size(229, 111);
             this.richTextBoxMaterials.TabIndex = 4;
-            this.richTextBoxMaterials.Text = "1 1 0 3\n0 0 0 2\n2 2 2 2";
+            this.richTextBoxMaterials.Text = "";
             this.richTextBoxMaterials.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxMaterials_KeyPress);
             // 
             // label1
@@ -168,15 +166,15 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Player\'s function";
             // 
-            // richTextBoxWinning
+            // richTextBoxPlayerFunc
             // 
-            this.richTextBoxWinning.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.richTextBoxWinning.Location = new System.Drawing.Point(602, 311);
-            this.richTextBoxWinning.Name = "richTextBoxWinning";
-            this.richTextBoxWinning.Size = new System.Drawing.Size(229, 111);
-            this.richTextBoxWinning.TabIndex = 16;
-            this.richTextBoxWinning.Text = "X1+X2+X3\nX2+X3\n2*X4";
-            this.richTextBoxWinning.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxWinning_KeyPress);
+            this.richTextBoxPlayerFunc.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.richTextBoxPlayerFunc.Location = new System.Drawing.Point(602, 311);
+            this.richTextBoxPlayerFunc.Name = "richTextBoxPlayerFunc";
+            this.richTextBoxPlayerFunc.Size = new System.Drawing.Size(229, 111);
+            this.richTextBoxPlayerFunc.TabIndex = 16;
+            this.richTextBoxPlayerFunc.Text = "";
+            this.richTextBoxPlayerFunc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxPlayerFunc_KeyPress);
             // 
             // dgvCoalition
             // 
@@ -185,6 +183,7 @@
             this.dgvCoalition.AllowUserToResizeColumns = false;
             this.dgvCoalition.AllowUserToResizeRows = false;
             this.dgvCoalition.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvCoalition.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvCoalition.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
             this.dgvCoalition.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableWithoutHeaderText;
             this.dgvCoalition.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -224,7 +223,7 @@
             // 
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.buttonClear.Location = new System.Drawing.Point(672, 457);
+            this.buttonClear.Location = new System.Drawing.Point(660, 456);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(108, 34);
             this.buttonClear.TabIndex = 18;
@@ -238,7 +237,7 @@
             this.buttonStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.buttonStop.Image = global::Dynamic_Games.Properties.Resources.stop;
-            this.buttonStop.Location = new System.Drawing.Point(448, 378);
+            this.buttonStop.Location = new System.Drawing.Point(459, 389);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(108, 34);
             this.buttonStop.TabIndex = 12;
@@ -252,7 +251,7 @@
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.buttonStart.Image = ((System.Drawing.Image)(resources.GetObject("buttonStart.Image")));
-            this.buttonStart.Location = new System.Drawing.Point(448, 311);
+            this.buttonStart.Location = new System.Drawing.Point(459, 322);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(108, 34);
             this.buttonStart.TabIndex = 6;
@@ -274,7 +273,7 @@
             this.ClientSize = new System.Drawing.Size(878, 502);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.richTextBoxWinning);
+            this.Controls.Add(this.richTextBoxPlayerFunc);
             this.Controls.Add(this.dgvCoalition);
             this.Controls.Add(this.buttonLeaver);
             this.Controls.Add(this.buttonNewPlayer);
@@ -313,7 +312,7 @@
         public System.Windows.Forms.NumericUpDown numericPlayer;
         public System.Windows.Forms.RichTextBox richTextBoxMaterials;
         private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.RichTextBox richTextBoxWinning;
+        public System.Windows.Forms.RichTextBox richTextBoxPlayerFunc;
         private System.Windows.Forms.DataGridView dgvCoalition;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Timer timer1;

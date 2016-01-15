@@ -46,7 +46,7 @@ namespace Dynamic_test
             //(numericPlayer.Value == 0 || textBoxProduct.Text == "" || richTextBoxMaterials.Text == "")
             CoopForm coopTest = new CoopForm();
 
-            coopTest.richTextBoxWinning.Text = "";
+            coopTest.richTextBoxPlayerFunc.Text = "";
             coopTest.numericPlayer.Value = 0;
             coopTest.richTextBoxMaterials.Text = "";
             Assert.IsFalse(coopTest.CheckFill());
@@ -54,7 +54,7 @@ namespace Dynamic_test
             coopTest.numericPlayer.Value = 5;
             Assert.IsFalse(coopTest.CheckFill());
 
-            coopTest.richTextBoxWinning.Text = "alma";
+            coopTest.richTextBoxPlayerFunc.Text = "alma";
             Assert.IsFalse(coopTest.CheckFill());
 
             coopTest.richTextBoxMaterials.Text = "rost\nmag";

@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CColor = System.Drawing.Color;
 using System.Resources;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Dynamic_Games
 {
     public partial class CoopForm : Form
     {
         Random randomGen = new Random();
+        List<string> coal;
 
         //close the form
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -27,16 +29,21 @@ namespace Dynamic_Games
         public CoopForm()
         {
             InitializeComponent();
-            initDGV();
+            initDgvChart();
             initInput();
         }
 
-        private void initDGV()
+        private void initDgvChart()
         {
             dgvCoalition.AutoGenerateColumns = false;
             dgvCoalition.ColumnCount = 1;
             //dgvCoalition.Columns[0].Name = "Players";
             dgvCoalition.Columns[0].Name = "Coalitions";
+            Title title = chartProfit.Titles.Add("Winning ratio");
+            title.Font = new System.Drawing.Font("Arial", 10f,FontStyle.Bold);
+            var chartArea = new ChartArea("WinningRatio");
+            chartArea.AxisX.Title = "Coalitions";
+            chartArea.AxisY.Title = "Winning rate";
         }
 
         private void initInput()
@@ -46,13 +53,13 @@ namespace Dynamic_Games
             var text = "1 1 0 3" + Environment.NewLine + "0 0 0 2" + Environment.NewLine + "2 2 2 2";
             richTextBoxMaterials.Text = text;
             text = "X1+X2+X3" + Environment.NewLine + "X2+X3" + Environment.NewLine + "2*X4";
-            richTextBoxWinning.Text = text;
+            richTextBoxPlayerFunc.Text = text;
         }
 
         //check if everything is filled.
         public bool CheckFill()
         {
-            if (numericPlayer.Value <= 0 || richTextBoxWinning.Text == "" || richTextBoxMaterials.Text == "")
+            if (numericPlayer.Value <= 0 || richTextBoxPlayerFunc.Text == "" || richTextBoxMaterials.Text == "")
             {
                 return false;
             }
@@ -71,11 +78,11 @@ namespace Dynamic_Games
                     buttonClear.Enabled = false;
                     buttonStop.Enabled = true;
 
-                    //var winningTokenized = tokenizer(richTextBoxWinning.Text);
+                    var playerFuncTokenized = tokenizer(richTextBoxPlayerFunc.Text);
                     var materialsTokenized = tokenizer(richTextBoxMaterials.Text);
                     DgvFirstRow();
-                    chart();
                     FillDataGrid();
+                    chart();
 
                     timer1.Enabled = true;
                 }
@@ -130,14 +137,14 @@ namespace Dynamic_Games
             
         }
 
-        private int[] tokenizer(string inputString)
+        private string[] tokenizer(string inputString)
         {
             //string[] splitString = inputString.Split(' ').ToArray();
             try
             {
-                string[] stringSeparators = new string[] { " ", "\n", "\t" };
-                int[] splitInt = inputString.Split(stringSeparators, StringSplitOptions.None).Select(word => Int32.Parse(word)).ToArray();
-                return splitInt;
+                string[] stringSeparators = new string[] { "\n" };
+                string[] splitString = inputString.Split(stringSeparators, StringSplitOptions.None).ToArray();
+                return splitString;
             }
             catch
             {
@@ -170,7 +177,7 @@ namespace Dynamic_Games
             Decimal.ToInt32(numericPlayer.Value);
             for (int i = 0; i < 1; i++)
             {
-                var coal = BackTrack(Decimal.ToInt32(numericPlayer.Value));
+                this.coal = BackTrack(Decimal.ToInt32(numericPlayer.Value));
                 var c = "";
                 foreach (var e in coal)
                 {
@@ -181,34 +188,66 @@ namespace Dynamic_Games
                 //dgvCoalition.Rows[i].Cells[0].Style.ForeColor = GetRandomColor();
                 dgvCoalition.DefaultCellStyle.Font = new Font(Font, FontStyle.Bold);
             }
+            dgvCoalition.FirstDisplayedScrollingRowIndex = dgvCoalition.RowCount - 1;
+
         }
 
+        // get a list's min value
+        private int getMin(List<int> list)
+        {
+            int min = Int32.MaxValue;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] < min)
+                {
+                    min = list[i];
+                }
+            }
+            return min;
+        }
+
+        // get a list's max value
+        private int getMax(List<int> list)
+        {
+            int max = Int32.MinValue;
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] > max)
+                {
+                    max = list[i];
+                }
+            }
+            return max;
+        }
+
+        //chart fill
         private void chart()
         {
-            List<long> winningFunc = new List<long>();
-            List<string> coal = new List<string>();
-            int count = 0;
+            List<int> winningFunc = new List<int>();
+            int count = 1;
             int rnd;
             
-            coal = BackTrack(Decimal.ToInt32(numericPlayer.Value));
-            for (int i = 0; i < coal.Count; i++)
+            for (int i = 0; i < this.coal.Count; i++)
             {
-                if (coal[i] == ")    ")
+                if (this.coal[i] == ")    ")
                 {
                     count++;
                 }
             }
 
+            //random generate numbers for the list
             int count2 = count;
             while (count2 > 0)
             {
-                rnd = randomGen.Next(35, 300);
+                rnd = randomGen.Next(10, 1000);
                 winningFunc.Add(rnd);
                 count2--;
             }
-
-            chartProfit.ChartAreas[0].AxisY.Minimum = 15;
-            chartProfit.ChartAreas[0].AxisY.Maximum = 300;
+            var avg = winningFunc.Min() - winningFunc.Average() <= 0 ? 0 : winningFunc.Min() - winningFunc.Average();
+            chartProfit.ChartAreas[0].AxisY.Minimum = Convert.ToDouble(avg);
+            //chartProfit.ChartAreas[0].AxisY.Maximum = Convert.ToDouble(winningFunc.Max());
 
             for (int j = 0; j < count; j++)
             {
@@ -216,6 +255,7 @@ namespace Dynamic_Games
             }
         }
 
+        // make a list from the number of players, in this format : ex. P1
         private List<string> GetPlayersArray(int numberOfPlayers)
         {
             try
@@ -303,12 +343,14 @@ namespace Dynamic_Games
             dgvCoalition.ClearSelection();
         }
 
+        // richboxMaterials accepts only numbers and whitespace characters
         private void richTextBoxMaterials_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsLetterOrDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar);
         }
 
-        private void richTextBoxWinning_KeyPress(object sender, KeyPressEventArgs e)
+        // richboxPlayerFunc accepts only xX characters, numbers and some special characters: - + / * ^
+        private void richTextBoxPlayerFunc_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
             // Check for a naughty character in the KeyDown event.
@@ -323,6 +365,7 @@ namespace Dynamic_Games
             }
         }
 
+        // refresh the chart and datagridview in every second
         private void timer1_Tick(object sender, EventArgs e)
         {
             //dgvCoalition.Rows.Clear();
@@ -338,11 +381,13 @@ namespace Dynamic_Games
             chart();
         }
 
+        // add one new player (dynamic game)
         private void buttonNewPlayer_Click(object sender, EventArgs e)
         {
             numericPlayer.Value += 1;
         }
 
+        // one player leave (dynamic game)
         private void buttonLeaver_Click(object sender, EventArgs e)
         {
             numericPlayer.Value -= 1;
