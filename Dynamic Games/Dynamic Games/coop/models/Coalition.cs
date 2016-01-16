@@ -38,11 +38,6 @@ namespace Dynamic_Games.coop.models
 
         public void removePlayer(Player player)
         {
-            if (player.Materials.Length > materials.Length)
-            {
-                //TODO: create exception
-                throw new Exception();
-            }
             players.Remove(player);
             materials = materials.Zip(player.Materials, (x, y) => x - y).ToArray<int>();
             maximumCalculated = false;

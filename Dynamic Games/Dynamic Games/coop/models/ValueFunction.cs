@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Dynamic_Games.Coop.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -43,8 +45,15 @@ namespace Dynamic_Games.coop.models
             obj.Language = "javascript";
 
             //execute function like javascript with the given parameters
-            var value = obj.Eval(parameters + function);
-            return value;
+            try
+            {
+                var value = obj.Eval(parameters + function);
+                return value;
+            }
+            catch (COMException e)
+            {
+                throw new InputException("False value function",e);
+            }
         }
         
 

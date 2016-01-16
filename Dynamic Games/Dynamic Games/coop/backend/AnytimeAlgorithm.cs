@@ -19,7 +19,8 @@ namespace Dynamic_Games.coop.backend
         private int n; // number of Players;
         private Coalition[][] l; // l[s] is all Coalition containing s player
         private Player[] players;
-        private List<Coalition[]> coalitionStructuresFound;
+        private volatile List<Coalition[]> coalitionStructuresFound;
+        private volatile Boolean stop;
 
         private struct PruneResult
         {
@@ -109,7 +110,7 @@ namespace Dynamic_Games.coop.backend
             var i = 0;
             while (i < setG.Count)
             {
-                if (maxg[i] > v)
+                if (maxg[i] <= v)
                 {
                     setG.RemoveAt(i);
                     maxg.RemoveAt(i);
@@ -121,7 +122,7 @@ namespace Dynamic_Games.coop.backend
                 }
             }
             var result = new PruneResult();
-            result.setG = new List<int[]>();
+            result.setG = setG;
             result.avgOfSetG = avgg;
             result.maxOfSetG = maxg;
             return result;
@@ -151,6 +152,7 @@ namespace Dynamic_Games.coop.backend
             var xmax = 0; // index of vmax
             for (var s = 1; s <= n / 2; s++)//scan all complementary coalitions
             {
+                Console.WriteLine(s);
                 var s1 = s - 1;
                 var s2 = (n - s) - 1;
                 var end = l[s1].Length; // length of coalitions containing s player
@@ -173,11 +175,16 @@ namespace Dynamic_Games.coop.backend
                         xmax = x;
                     }
                     if (maxs[s1] < v1)
+                    {
                         maxs[s1] = v1;
+                    }
                     if (maxs[s2] < v2)
+                    {
                         maxs[s2] = v2;
+                    }
                     sums[s1] += v1;
                     sums[s2] += v2;
+                    if (stop) return;
                 }
                 var xmax1 = xmax - 1;
                 var xmax2 = (l[s1].Length - xmax + 1) - 1;
@@ -191,31 +198,36 @@ namespace Dynamic_Games.coop.backend
                 }
                 avgs[s1] = sums[s1] / l[s1].Length;
                 avgs[s2] = sums[s2] / l[s2].Length;
+                if (stop) return;
             }
-            var gSet = generateNumbersAllPartitionExcept(n, 2);
+            setG = generateNumbersAllPartitionExcept(n, 2);
+            var xxxxx = setG.Count;
             //set of possible integer partitions of n except that contains 2 parts(because we just scanned them)
             maxOfSetG = new List<Double>();
             avgOfSetG = new List<Double>();
-            for (var i = 0; i < gSet.Count; i++)
+            for (var i = 0; i < setG.Count; i++)
             {
-                int[] g = (int[])gSet[i];
+                int[] g = (int[])setG[i];
                 Double maxg = 0;
                 Double avgg = 0;
                 for (var j = 0; j < g.Length; j++)
                 {
                     maxg += maxs[g[j] - 1];
                     avgg += avgs[g[j] - 1];
+                    if (stop) return;
                 }
                 maxOfSetG.Add(maxg);
                 avgOfSetG.Add(avgg);
+                if (stop) return;
             }
             var ub = Math.Max(vcs, maxOfSetG.Max()); //calculate upper bound
             var lb = Math.Max(vcs, avgOfSetG.Max()); //calculate lower bound
-            PruneResult pruneResult = prune(gSet, maxOfSetG, avgOfSetG, lb);
-            gSet = pruneResult.setG;
+            PruneResult pruneResult = prune(setG, maxOfSetG, avgOfSetG, lb);
+            setG = pruneResult.setG;
+            var lx = setG.Count;
             maxOfSetG = pruneResult.maxOfSetG;
             avgOfSetG = pruneResult.avgOfSetG;
-            beta = Math.Min(n / 2, ub / vcs);
+            if (vcs != 0) beta = Math.Min(n / 2, ub / vcs);
         }
 
         //select next partition from partition set(setG)
@@ -286,7 +298,7 @@ namespace Dynamic_Games.coop.backend
             stack.alpha[0] = 1;
             stack.mSet[k] = getMSet(g, k, g[k] - 1, stack.players[k], stack.alpha[k]); //set of coalitions at first level
 
-            while (k >= 0)
+            while (k >= 0 && !stop)
             {
                 stack.m[k]++;
                 if (stack.m[k] < stack.mSet[k].Count) //if it's a valid coalition index
@@ -360,12 +372,13 @@ namespace Dynamic_Games.coop.backend
         {
             var vcs = ValueOfCoalitionStructure(cs);
 
-            while (setG.Count != 0)
+            while (setG.Count != 0 && !stop)
             {
+                Console.WriteLine(setG.Count);
                 var gIndex = select(maxOfSetG);
                 var g = (int[])setG[gIndex];
                 var newCS = searchList(g, maxOfSetG[gIndex]);
-
+                
                 setG.RemoveAt(gIndex);
                 maxOfSetG.RemoveAt(gIndex);
                 avgOfSetG.RemoveAt(gIndex);
@@ -382,7 +395,12 @@ namespace Dynamic_Games.coop.backend
                 if (setG.Count > 0)
                 {
                     ub = Math.Max(vcs, maxOfSetG.Max()); // new upper bound
-                    beta = Math.Min(ub / vcs, beta); //new bound on quality
+                    if (vcs != 0) beta = Math.Min(ub / vcs, beta); //new bound on quality
+                }
+                else
+                {
+                    ub = vcs;
+                    if (vcs != 0) beta = (ub / vcs);
                 }
             }
             return cs;
@@ -438,8 +456,15 @@ namespace Dynamic_Games.coop.backend
                 l[i] = combinations[i].ToArray();
             }
             coalitionStructuresFound = new List<Coalition[]>();
+        }
+
+        public void start()
+        {
+            stop = false;
             scanAndSearch();
+            if (!stop) {
             searchSpace(new ArrayList(players));
+                }
         }
 
         public List<Coalition> getPartialResult()
@@ -454,6 +479,11 @@ namespace Dynamic_Games.coop.backend
             {
                 return null;
             }
+        }
+
+        public void RequestStop()
+        {
+            stop = true;
         }
     }
 }

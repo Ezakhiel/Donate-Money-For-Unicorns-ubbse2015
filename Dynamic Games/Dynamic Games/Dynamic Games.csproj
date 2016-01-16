@@ -56,7 +56,9 @@
     <Compile Include="Coop\Backend\AnytimeAlgorithm.cs" />
     <Compile Include="Coop\Backend\Controller.cs" />
     <Compile Include="Coop\Backend\EquilibriumCalculator.cs" />
+    <Compile Include="Coop\Exceptions\InputException.cs" />
     <Compile Include="Coop\Models\Coalition.cs" />
+    <Compile Include="Coop\Models\PartialResult.cs" />
     <Compile Include="Coop\Models\Player.cs" />
     <Compile Include="Coop\Models\ValueFunction.cs" />
     <Compile Include="IncInformation\Cards\Card.cs">

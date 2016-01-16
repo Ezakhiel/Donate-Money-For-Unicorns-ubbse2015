@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 using Dynamic_Games.coop.models;
 using System.IO;
+using Dynamic_Games.Coop.Models;
+using System.Threading;
+using Dynamic_Games.Coop.Exceptions;
 
 namespace Dynamic_Games.coop.backend
 {
@@ -13,10 +16,9 @@ namespace Dynamic_Games.coop.backend
     {
         static Controller instance;
         EquilibriumCalculator calculator;
+        Thread calculatorThread;
 
-        private Controller(){
-            calculator = new AnytimeAlgorithm();
-        }
+        private Controller(){}
 
         public static Controller getInstance()
         {
@@ -26,15 +28,35 @@ namespace Dynamic_Games.coop.backend
             return instance;
         }
 
+        private void selectCalculator()
+        {
+            calculator = new AnytimeAlgorithm();
+        }
+
+
         public void init(string[] players, int[][] materials)
         {
             Player[] agents = new Player[players.Length];
+            if (players.Length != materials.Length)
+            {
+                throw new InputException("False number of materials or players");
+            }
+            int m = materials[0].Length;
             for (var i = 0; i < players.Length; i++)
             {
+                if (materials[i].Length != m)
+                {
+                    throw new InputException("False materials");
+                }
                 agents[i] = new Player(new ValueFunction(players[i]), materials[i]);
                 agents[i].Name = Player.prefix + (i + 1);
+                agents[i].ValueFunction.getValue(agents[i].Materials);
             }
+
+            selectCalculator();
             calculator.init(agents, materials[0].Length);
+            calculatorThread = new Thread(calculator.start);
+            calculatorThread.Start();
         }
 
         private void init(String filename)
@@ -77,8 +99,45 @@ namespace Dynamic_Games.coop.backend
             }
         }
 
-        public List<Coalition> getPartialResult(){
-            return calculator.getPartialResult();
+        public void stop()
+        {
+            if (calculator != null)
+            {
+                calculator.RequestStop();
+            }
+        }
+
+        public PartialResult getPartialResult(){
+            List<Coalition> coalitions = calculator.getPartialResult();
+            if (coalitions != null) // if there was result yet
+            {
+                List<string> coals = new List<string>();
+                List<int> profits = new List<int>();
+
+                foreach (var coalition in coalitions)
+                {
+                    coals.Add(coalition.ToString());
+                    profits.Add(Convert.ToInt32(coalition.getMaximumValue()));
+                }
+
+                PartialResult result = new PartialResult();
+                result.Coalitions = coals;
+                result.Profits = profits;
+                result.End = false;
+                return result;
+            }
+            else // if there was no result
+            {
+                if (!calculatorThread.IsAlive){ //if thread is done
+                    PartialResult result = new PartialResult();
+                    result.End = true;
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
+            }
         }
     }
 }
