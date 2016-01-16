@@ -406,6 +406,8 @@ namespace Dynamic_Games
             else
             {
                 table.players[0] = new AIPlayer(1000, 0, table,(new Parameters(0)).getLatestParam(aiNUm));
+                table.players[0].setPos(Position.SmallBlind);
+
                 aiNUm++;
             }
             table.resetTable();
@@ -424,6 +426,7 @@ namespace Dynamic_Games
             else
             {
                 table.players[1] = new AIPlayer(1000, 1, table, (new Parameters(0)).getLatestParam(aiNUm));
+                table.players[1].setPos(Position.BigBlind);
                 aiNUm++;
             }
             table.resetTable();

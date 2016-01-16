@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Drawing;
 using System.Windows.Forms;
 
 using MyCard = Dynamic_Games.IncInformation.Cards;
@@ -55,6 +56,16 @@ namespace Dynamic_Games.IncInformation.Game
             nextTurn();
             //river
             nextTurn();
+            foreach (Player.Player p in table.players)
+            {
+                p.cards[0].CardImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(p.cards[0].CardName);
+                p.cards[1].CardImage = (Bitmap)Properties.Resources.ResourceManager.GetObject(p.cards[1].CardName);
+            }
+            this.table.controls.Invoke((Action)delegate
+            {
+                table.controls.vizualize();
+            });
+            Thread.Sleep(3000);
         }
 
         private void nextTurn()

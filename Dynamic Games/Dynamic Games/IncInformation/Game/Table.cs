@@ -86,10 +86,10 @@ namespace Dynamic_Games.IncInformation.Game
             }
             players[0].setPos(Player.Position.SmallBlind);
             smallBLoc = 0;
-            controls.playerVis[0].typeLBL.Text += "SB";
+           // controls.playerVis[0].typeLBL.Text += "SB";
             players[1].setPos(Player.Position.BigBlind);
             bigBLoc = 1;
-            controls.playerVis[1].typeLBL.Text += "BB";
+           // controls.playerVis[1].typeLBL.Text += "BB";
         }
 
         public void startTable()
@@ -168,29 +168,29 @@ namespace Dynamic_Games.IncInformation.Game
                 {
                     p.setPos(Player.Position.None);
                     tmpid = p.id + 1;
-                    controls.playerVis[p.id].typeLBL.Invoke((Action)delegate
+                   /* controls.playerVis[p.id].typeLBL.Invoke((Action)delegate
                     {
                         controls.playerVis[p.id].typeLBL.Text = "Player " + tmpid + ":";
-                    });
+                    });*/
 
                     tmpid = nextActiveId(p.id);
                     smallBLoc = tmpid;
                     players[tmpid].setPos(Player.Position.SmallBlind);
                     tmpid++;
-                    controls.playerVis[p.id].typeLBL.Invoke((Action)delegate
+                  /*  controls.playerVis[p.id].typeLBL.Invoke((Action)delegate
                     {
                         controls.playerVis[p.id].typeLBL.Text = "Player " + tmpid + ":SB";
-                    });
+                    });*/
 
                     tmpid--;
                     tmpid = nextActiveId(tmpid);
                     players[tmpid].setPos(Player.Position.BigBlind);
                     bigBLoc = tmpid;
                     tmpid++;
-                    controls.playerVis[p.id].typeLBL.Invoke((Action)delegate
+                  /*  controls.playerVis[p.id].typeLBL.Invoke((Action)delegate
                     {
                         controls.playerVis[p.id].typeLBL.Text = "Player " + tmpid + ":BB";
-                    });
+                    });*/
                     break;
                 }
 
