@@ -72,7 +72,6 @@ namespace Dynamic_Games
             this.P8ComboBox = new System.Windows.Forms.ComboBox();
             this.P8Label = new System.Windows.Forms.Label();
             this.P1Cash = new System.Windows.Forms.Label();
-            this.statusLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.P2Cash = new System.Windows.Forms.Label();
             this.P3Cash = new System.Windows.Forms.Label();
@@ -81,8 +80,6 @@ namespace Dynamic_Games
             this.P6Cash = new System.Windows.Forms.Label();
             this.P7Cash = new System.Windows.Forms.Label();
             this.P8Cash = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.statusLabel = new System.Windows.Forms.Label();
             this.P3BetLBL = new System.Windows.Forms.Label();
             this.P2BetLBL = new System.Windows.Forms.Label();
             this.P1BetLBL = new System.Windows.Forms.Label();
@@ -91,7 +88,6 @@ namespace Dynamic_Games
             this.P7BetLBL = new System.Windows.Forms.Label();
             this.P6BetLBL = new System.Windows.Forms.Label();
             this.P5BetLBL = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.P1Bet = new System.Windows.Forms.Label();
             this.P2Bet = new System.Windows.Forms.Label();
             this.P3Bet = new System.Windows.Forms.Label();
@@ -100,6 +96,11 @@ namespace Dynamic_Games
             this.P6Bet = new System.Windows.Forms.Label();
             this.P7Bet = new System.Windows.Forms.Label();
             this.P8Bet = new System.Windows.Forms.Label();
+            this.finishBtn = new System.Windows.Forms.Button();
+            this.betTextBox = new System.Windows.Forms.TextBox();
+            this.humanBet = new System.Windows.Forms.Label();
+            this.foldBtn = new System.Windows.Forms.Button();
+            this.callBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TablePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P1C1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P1C2)).BeginInit();
@@ -316,7 +317,7 @@ namespace Dynamic_Games
             // P1Label
             // 
             this.P1Label.AutoSize = true;
-            this.P1Label.Location = new System.Drawing.Point(924, 81);
+            this.P1Label.Location = new System.Drawing.Point(887, 81);
             this.P1Label.Name = "P1Label";
             this.P1Label.Size = new System.Drawing.Size(48, 13);
             this.P1Label.TabIndex = 20;
@@ -395,7 +396,7 @@ namespace Dynamic_Games
             // P2Label
             // 
             this.P2Label.AutoSize = true;
-            this.P2Label.Location = new System.Drawing.Point(924, 108);
+            this.P2Label.Location = new System.Drawing.Point(887, 108);
             this.P2Label.Name = "P2Label";
             this.P2Label.Size = new System.Drawing.Size(48, 13);
             this.P2Label.TabIndex = 27;
@@ -414,7 +415,7 @@ namespace Dynamic_Games
             // P3Label
             // 
             this.P3Label.AutoSize = true;
-            this.P3Label.Location = new System.Drawing.Point(924, 135);
+            this.P3Label.Location = new System.Drawing.Point(887, 135);
             this.P3Label.Name = "P3Label";
             this.P3Label.Size = new System.Drawing.Size(48, 13);
             this.P3Label.TabIndex = 29;
@@ -433,7 +434,7 @@ namespace Dynamic_Games
             // P4Label
             // 
             this.P4Label.AutoSize = true;
-            this.P4Label.Location = new System.Drawing.Point(924, 162);
+            this.P4Label.Location = new System.Drawing.Point(887, 162);
             this.P4Label.Name = "P4Label";
             this.P4Label.Size = new System.Drawing.Size(48, 13);
             this.P4Label.TabIndex = 31;
@@ -452,7 +453,7 @@ namespace Dynamic_Games
             // P5Label
             // 
             this.P5Label.AutoSize = true;
-            this.P5Label.Location = new System.Drawing.Point(924, 189);
+            this.P5Label.Location = new System.Drawing.Point(887, 189);
             this.P5Label.Name = "P5Label";
             this.P5Label.Size = new System.Drawing.Size(48, 13);
             this.P5Label.TabIndex = 33;
@@ -471,7 +472,7 @@ namespace Dynamic_Games
             // P6Label
             // 
             this.P6Label.AutoSize = true;
-            this.P6Label.Location = new System.Drawing.Point(924, 216);
+            this.P6Label.Location = new System.Drawing.Point(887, 216);
             this.P6Label.Name = "P6Label";
             this.P6Label.Size = new System.Drawing.Size(48, 13);
             this.P6Label.TabIndex = 35;
@@ -490,7 +491,7 @@ namespace Dynamic_Games
             // P7Label
             // 
             this.P7Label.AutoSize = true;
-            this.P7Label.Location = new System.Drawing.Point(924, 243);
+            this.P7Label.Location = new System.Drawing.Point(887, 243);
             this.P7Label.Name = "P7Label";
             this.P7Label.Size = new System.Drawing.Size(48, 13);
             this.P7Label.TabIndex = 37;
@@ -509,7 +510,7 @@ namespace Dynamic_Games
             // P8Label
             // 
             this.P8Label.AutoSize = true;
-            this.P8Label.Location = new System.Drawing.Point(924, 270);
+            this.P8Label.Location = new System.Drawing.Point(887, 270);
             this.P8Label.Name = "P8Label";
             this.P8Label.Size = new System.Drawing.Size(48, 13);
             this.P8Label.TabIndex = 39;
@@ -525,16 +526,6 @@ namespace Dynamic_Games
             this.P1Cash.Size = new System.Drawing.Size(49, 15);
             this.P1Cash.TabIndex = 41;
             this.P1Cash.Text = "Money";
-            // 
-            // statusLbl
-            // 
-            this.statusLbl.AutoSize = true;
-            this.statusLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLbl.Location = new System.Drawing.Point(924, 349);
-            this.statusLbl.Name = "statusLbl";
-            this.statusLbl.Size = new System.Drawing.Size(52, 17);
-            this.statusLbl.TabIndex = 42;
-            this.statusLbl.Text = "Status:";
             // 
             // label1
             // 
@@ -621,25 +612,6 @@ namespace Dynamic_Games
             this.P8Cash.Size = new System.Drawing.Size(49, 15);
             this.P8Cash.TabIndex = 50;
             this.P8Cash.Text = "Money";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(951, 412);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 51;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(982, 353);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(35, 13);
-            this.statusLabel.TabIndex = 52;
-            this.statusLabel.Text = "label2";
             // 
             // P3BetLBL
             // 
@@ -729,17 +701,6 @@ namespace Dynamic_Games
             this.P5BetLBL.TabIndex = 61;
             this.P5BetLBL.Text = "Bet:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label3.Location = new System.Drawing.Point(404, 349);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 15);
-            this.label3.TabIndex = 62;
-            this.label3.Text = "Bet:";
-            // 
             // P1Bet
             // 
             this.P1Bet.AutoSize = true;
@@ -822,17 +783,70 @@ namespace Dynamic_Games
             this.P8Bet.AutoSize = true;
             this.P8Bet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.P8Bet.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.P8Bet.Location = new System.Drawing.Point(152, 412);
+            this.P8Bet.Location = new System.Drawing.Point(137, 415);
             this.P8Bet.Name = "P8Bet";
             this.P8Bet.Size = new System.Drawing.Size(15, 15);
             this.P8Bet.TabIndex = 70;
             this.P8Bet.Text = "0";
+            // 
+            // finishBtn
+            // 
+            this.finishBtn.Location = new System.Drawing.Point(998, 407);
+            this.finishBtn.Name = "finishBtn";
+            this.finishBtn.Size = new System.Drawing.Size(75, 23);
+            this.finishBtn.TabIndex = 71;
+            this.finishBtn.Text = "Finish";
+            this.finishBtn.UseVisualStyleBackColor = true;
+            this.finishBtn.Click += new System.EventHandler(this.finishBtn_Click);
+            // 
+            // betTextBox
+            // 
+            this.betTextBox.Location = new System.Drawing.Point(973, 450);
+            this.betTextBox.Name = "betTextBox";
+            this.betTextBox.Size = new System.Drawing.Size(100, 20);
+            this.betTextBox.TabIndex = 72;
+            // 
+            // humanBet
+            // 
+            this.humanBet.AutoSize = true;
+            this.humanBet.Location = new System.Drawing.Point(909, 453);
+            this.humanBet.Name = "humanBet";
+            this.humanBet.Size = new System.Drawing.Size(26, 13);
+            this.humanBet.TabIndex = 73;
+            this.humanBet.Text = "Bet:";
+            // 
+            // foldBtn
+            // 
+            this.foldBtn.BackColor = System.Drawing.Color.Red;
+            this.foldBtn.Location = new System.Drawing.Point(998, 537);
+            this.foldBtn.Name = "foldBtn";
+            this.foldBtn.Size = new System.Drawing.Size(75, 23);
+            this.foldBtn.TabIndex = 75;
+            this.foldBtn.Text = "FOLD";
+            this.foldBtn.UseVisualStyleBackColor = false;
+            this.foldBtn.Click += new System.EventHandler(this.foldBtn_Click);
+            // 
+            // callBTN
+            // 
+            this.callBTN.BackColor = System.Drawing.Color.Yellow;
+            this.callBTN.Location = new System.Drawing.Point(998, 497);
+            this.callBTN.Name = "callBTN";
+            this.callBTN.Size = new System.Drawing.Size(75, 23);
+            this.callBTN.TabIndex = 76;
+            this.callBTN.Text = "CALL";
+            this.callBTN.UseVisualStyleBackColor = false;
+            this.callBTN.Click += new System.EventHandler(this.callBTN_Click);
             // 
             // IncInformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1106, 640);
+            this.Controls.Add(this.callBTN);
+            this.Controls.Add(this.foldBtn);
+            this.Controls.Add(this.humanBet);
+            this.Controls.Add(this.betTextBox);
+            this.Controls.Add(this.finishBtn);
             this.Controls.Add(this.P8Bet);
             this.Controls.Add(this.P7Bet);
             this.Controls.Add(this.P6Bet);
@@ -841,7 +855,6 @@ namespace Dynamic_Games
             this.Controls.Add(this.P3Bet);
             this.Controls.Add(this.P2Bet);
             this.Controls.Add(this.P1Bet);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.P5BetLBL);
             this.Controls.Add(this.P6BetLBL);
             this.Controls.Add(this.P7BetLBL);
@@ -850,8 +863,6 @@ namespace Dynamic_Games
             this.Controls.Add(this.P1BetLBL);
             this.Controls.Add(this.P2BetLBL);
             this.Controls.Add(this.P3BetLBL);
-            this.Controls.Add(this.statusLabel);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.P8Cash);
             this.Controls.Add(this.P7Cash);
             this.Controls.Add(this.P6Cash);
@@ -860,7 +871,6 @@ namespace Dynamic_Games
             this.Controls.Add(this.P3Cash);
             this.Controls.Add(this.P2Cash);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.statusLbl);
             this.Controls.Add(this.P1Cash);
             this.Controls.Add(this.P8ComboBox);
             this.Controls.Add(this.P8Label);
@@ -936,8 +946,29 @@ namespace Dynamic_Games
 
         private System.Windows.Forms.PictureBox TablePicture;
         private ComboBox ComboPlayerCount;
+        private PictureBox P1C1;
+        private PictureBox P1C2;
+        private PictureBox P2C2;
+        private PictureBox P2C1;
+        private PictureBox P3C2;
+        private PictureBox P3C1;
+        private PictureBox P4C2;
+        private PictureBox P4C1;
+        private PictureBox P5C2;
+        private PictureBox P5C1;
+        private PictureBox P6C2;
+        private PictureBox P6C1;
+        private PictureBox P7C2;
+        private PictureBox P7C1;
+        private PictureBox P8C2;
+        private PictureBox P8C1;
         private Label PlayerNrLabel;
         private Label P1Label;
+        private PictureBox Flop1;
+        private PictureBox Flop2;
+        private PictureBox Flop3;
+        private PictureBox River;
+        private PictureBox Turn;
         private ComboBox P1ComboBox;
         private ComboBox P2ComboBox;
         private Label P2Label;
@@ -954,7 +985,6 @@ namespace Dynamic_Games
         private ComboBox P8ComboBox;
         private Label P8Label;
         private Label P1Cash;
-        private Label statusLbl;
         private Label label1;
         private Label P2Cash;
         private Label P3Cash;
@@ -963,8 +993,6 @@ namespace Dynamic_Games
         private Label P6Cash;
         private Label P7Cash;
         private Label P8Cash;
-        private Button button1;
-        private Label statusLabel;
         private Label P3BetLBL;
         private Label P2BetLBL;
         private Label P1BetLBL;
@@ -973,7 +1001,6 @@ namespace Dynamic_Games
         private Label P7BetLBL;
         private Label P6BetLBL;
         private Label P5BetLBL;
-        private Label label3;
         private Label P1Bet;
         private Label P2Bet;
         private Label P3Bet;
@@ -982,27 +1009,11 @@ namespace Dynamic_Games
         private Label P6Bet;
         private Label P7Bet;
         private Label P8Bet;
-        public PictureBox P1C1;
-        public PictureBox P1C2;
-        public PictureBox P2C2;
-        public PictureBox P2C1;
-        public PictureBox P3C2;
-        public PictureBox P3C1;
-        public PictureBox P4C2;
-        public PictureBox P4C1;
-        public PictureBox P5C2;
-        public PictureBox P5C1;
-        public PictureBox P6C2;
-        public PictureBox P6C1;
-        public PictureBox P7C2;
-        public PictureBox P7C1;
-        public PictureBox P8C2;
-        public PictureBox P8C1;
-        public PictureBox Flop1;
-        public PictureBox Flop2;
-        public PictureBox Flop3;
-        public PictureBox River;
-        public PictureBox Turn;
+        private Button finishBtn;
+        private Label humanBet;
+        private Button foldBtn;
+        public TextBox betTextBox;
+        private Button callBTN;
 
     }
 }

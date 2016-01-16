@@ -140,7 +140,6 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 # vim
-*.txt~
 *.swp
 *.swo
  

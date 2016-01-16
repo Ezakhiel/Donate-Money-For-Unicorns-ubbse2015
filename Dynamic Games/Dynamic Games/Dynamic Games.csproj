@@ -61,12 +61,27 @@
     <Compile Include="Coop\Models\PartialResult.cs" />
     <Compile Include="Coop\Models\Player.cs" />
     <Compile Include="Coop\Models\ValueFunction.cs" />
-    <Compile Include="IncInformation\Cards\Deck.cs" />
-    <Compile Include="IncInformation\Player\AIPlayer.cs" />
-    <Compile Include="IncInformation\Cards\Card.cs" />
-    <Compile Include="IncInformation\Player\HumanPlayer.cs" />
-    <Compile Include="IncInformation\Player\Player.cs" />
-    <Compile Include="IncInformation\Player\Table.cs" />
+    <Compile Include="IncInformation\Cards\Card.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IncInformation\Cards\Deck.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IncInformation\Game\Deal.cs" />
+    <Compile Include="IncInformation\Game\FileRW.cs" />
+    <Compile Include="IncInformation\Game\Parameters.cs" />
+    <Compile Include="IncInformation\Game\Table.cs" />
+    <Compile Include="IncInformation\Game\TurnThread.cs" />
+    <Compile Include="IncInformation\Player\AI.cs" />
+    <Compile Include="IncInformation\Player\AIPlayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IncInformation\Player\HumanPlayer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IncInformation\Player\Player.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="MenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,7 +328,9 @@
   <ItemGroup>
     <None Include="Resources\pause.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="card-BMPs\black.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
