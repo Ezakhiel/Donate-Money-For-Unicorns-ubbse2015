@@ -9,7 +9,7 @@ using System.Threading;
  * Megjegyzes: Fontos Jatekosszam szerinti optimalizatiot is kellene
  * vegezni az algoritmuson a pontos nyeresi % felmereseben.
  * pl: 5 jatekosnal 20% os nyeresu lapok 2 jatekosnal 70% os lapok....
- * 
+ * Jelenleg normalizalt winchance-t kap az osztaly
  */
 namespace Dynamic_Games.IncInformation.Player
 {
@@ -58,7 +58,7 @@ namespace Dynamic_Games.IncInformation.Player
         }
 
 
-        //this one aint done
+        // Improvable
         public void tightPassive(double factWinChance)
         {
             // if he give a good starting card maybe he playing but not every time because he scaring, if he dont have good cards he fold
