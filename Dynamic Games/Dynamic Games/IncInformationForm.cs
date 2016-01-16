@@ -7,16 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 using Dynamic_Games.IncInformation.Player;
 using Dynamic_Games.IncInformation.Cards;
+using Dynamic_Games.IncInformation.Game;
 
 namespace Dynamic_Games
 {
     public partial class IncInformationForm : Form
     {
 
-        struct PlayerVisuals
+        public struct PlayerVisuals
         {
             public PictureBox c1;
             public PictureBox c2;
@@ -48,16 +50,22 @@ namespace Dynamic_Games
             }
         }
 
-        public List<PictureBox> cardIterator = new List<PictureBox>(21);
-        List<PlayerVisuals> playerVis = new List<PlayerVisuals>(6);
+
+        List<PictureBox> cardIterator = new List<PictureBox>(21);
+        public List<PlayerVisuals> playerVis = new List<PlayerVisuals>(6);
         List<Label> cashIterator = new List<Label>(8);
-        public Table table;
+        public List<Label> betIterator = new List<Label>(8);
+        Table table;
+        int playernum;
+        int aiNUm;
+        public volatile bool restart;
 
         public IncInformationForm()
         {
             InitializeComponent();
+            this.CreateHandle();
+            groupVisuals();
             PostInit();
-            table = new Table(new Deck(), 8);
             cardIterator.Add(P1C1);
             cardIterator.Add(P1C2);
             cardIterator.Add(P2C1);
@@ -82,8 +90,19 @@ namespace Dynamic_Games
             cashIterator.Add(P6Cash);
             cashIterator.Add(P7Cash);
             cashIterator.Add(P8Cash);
-            groupVisuals();
-            vizualize();
+            betIterator.Add(P1Bet);
+            betIterator.Add(P2Bet);
+            betIterator.Add(P3Bet);
+            betIterator.Add(P4Bet);
+            betIterator.Add(P5Bet);
+            betIterator.Add(P6Bet);
+            betIterator.Add(P7Bet);
+            betIterator.Add(P8Bet);
+            playernum = 8;
+            aiNUm = 0;
+            restart = false;
+            table = new Table(new Deck(), playernum, this);
+            table.startTable();
             /*
             cardIterator.Add(Flop1);
             cardIterator.Add(Flop2);
@@ -93,8 +112,33 @@ namespace Dynamic_Games
             */
         }
 
+        public void newTable()
+        {
+            table = new Table(new Deck(), playernum, this);
+            resetPlayerBoxes();
+            table.startTable();
+        }
+
         private void groupVisuals()
         {
+            PlayerVisuals p1 = new PlayerVisuals();
+            p1.c1 = P1C1;
+            p1.c2 = P1C2;
+            p1.money = P1Cash;
+            p1.bet = P1Bet;
+            p1.betLBL = P1BetLBL;
+            p1.typeLBL = P1Label;
+            p1.typeBox = P1ComboBox;
+            playerVis.Add(p1);
+            PlayerVisuals p2 = new PlayerVisuals();
+            p2.c1 = P2C1;
+            p2.c2 = P2C2;
+            p2.money = P2Cash;
+            p2.bet = P2Bet;
+            p2.betLBL = P2BetLBL;
+            p2.typeLBL = P2Label;
+            p2.typeBox = P2ComboBox;
+            playerVis.Add(p2);
             PlayerVisuals p3 = new PlayerVisuals();
             p3.c1 = P3C1;
             p3.c2 = P3C2;
@@ -157,6 +201,13 @@ namespace Dynamic_Games
             this.ComboPlayerCount.SelectedIndexChanged -= new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             ComboPlayerCount.DataSource = players;      // insert "PLEASE SELECT PLAYER NUMBER"
             this.ComboPlayerCount.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            resetPlayerBoxes();
+           
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+        }
+
+        private void resetPlayerBoxes()
+        {
             List<String> playerTypes = new List<String> { "Human", "Computer" };
             var p2cb = new String[2];
             var p3cb = new String[2];
@@ -196,8 +247,10 @@ namespace Dynamic_Games
             this.P8ComboBox.SelectedIndexChanged -= new System.EventHandler(this.P8ComboBox_SelectedIndexChanged);
             P8ComboBox.DataSource = p8cb;
             this.P8ComboBox.SelectedIndexChanged += new System.EventHandler(this.P8ComboBox_SelectedIndexChanged);
-           
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            for (int i = 1; i < 9; i++)
+            {
+                playerVis[i - 1].typeLBL.Text = "Player " + i + ":";
+            }
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -213,20 +266,20 @@ namespace Dynamic_Games
                     e.Cancel = true;
                     break;
                 default:
+                    restart = true;
+                    Thread.Sleep(1000);
                     this.DialogResult = DialogResult.OK;
                     break;
             }
         }
-        private void vizualize()
+        public void vizualize()
         {
             int needed = table.players.Count;
             int i = 0;
             foreach (Player p in table.players)
             {
-                cardIterator[i].Image = p.cards[0].CardImage;
-                cardIterator[i + 1].Image = p.cards[1].CardImage;
-            
-                cashIterator[i / 2].Text = p.cash.ToString();
+                cardIterator[i].Image = (Image)p.cards[0].CardImage;
+                cardIterator[i + 1].Image = (Image)p.cards[1].CardImage;
                 i += 2;
             }
             Flop1.Image = table.flop[0].CardImage;
@@ -244,238 +297,272 @@ namespace Dynamic_Games
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             switch (ComboPlayerCount.SelectedIndex)
             {
                 case 0:
-                    table = new Table(new Deck(),2);
-                    P1Cash.Text = (table.players[0].cash).ToString();
-                    P2Cash.Text = (table.players[1].cash).ToString();
-                    playerVis[0].hide();
-                    playerVis[1].hide();
+                    playernum = 2;
                     playerVis[2].hide();
                     playerVis[3].hide();
                     playerVis[4].hide();
                     playerVis[5].hide();
+                    playerVis[6].hide();
+                    playerVis[7].hide();
                     break;
 
                 case 1:
-                    table = new Table(new Deck(),3);
-                    P1Cash.Text = (table.players[0].cash).ToString();
-                    P2Cash.Text = (table.players[1].cash).ToString();
-                    P3Cash.Text = (table.players[2].cash).ToString();
-                    playerVis[0].show();
-                    playerVis[1].hide();
-                    playerVis[2].hide();
-                    playerVis[3].hide();
-                    playerVis[4].hide();
-                    playerVis[5].hide();
-                    break;
-                case 2:
-                    table = new Table(new Deck(),4);
-                    P1Cash.Text = (table.players[0].cash).ToString();
-                    P2Cash.Text = (table.players[1].cash).ToString();
-                    P3Cash.Text = (table.players[2].cash).ToString();
-                    P4Cash.Text = (table.players[3].cash).ToString();
-                    playerVis[0].show();
-                    playerVis[1].show();
-                    playerVis[2].hide();
-                    playerVis[3].hide();
-                    playerVis[4].hide();
-                    playerVis[5].hide();
-                    break;
-                case 3:
-                    table = new Table(new Deck(),5);
-                    P1Cash.Text = (table.players[0].cash).ToString();
-                    P2Cash.Text = (table.players[1].cash).ToString();
-                    P3Cash.Text = (table.players[2].cash).ToString();
-                    P4Cash.Text = (table.players[3].cash).ToString();
-                    P5Cash.Text = (table.players[4].cash).ToString();
-                    playerVis[0].show();
-                    playerVis[1].show();
+                    playernum = 3;
                     playerVis[2].show();
                     playerVis[3].hide();
                     playerVis[4].hide();
                     playerVis[5].hide();
+                    playerVis[6].hide();
+                    playerVis[7].hide();
                     break;
-                case 4:
-                    table = new Table(new Deck(),6);
-                    P1Cash.Text = (table.players[0].cash).ToString();
-                    P2Cash.Text = (table.players[1].cash).ToString();
-                    P3Cash.Text = (table.players[2].cash).ToString();
-                    P4Cash.Text = (table.players[3].cash).ToString();
-                    P5Cash.Text = (table.players[4].cash).ToString();
-                    P6Cash.Text = (table.players[5].cash).ToString();
-                    playerVis[0].show();
-                    playerVis[1].show();
+                case 2:
+                    playernum = 4;
                     playerVis[2].show();
                     playerVis[3].show();
                     playerVis[4].hide();
                     playerVis[5].hide();
+                    playerVis[6].hide();
+                    playerVis[7].hide();
                     break;
-                case 5:
-                    table = new Table(new Deck(),7);
-                    P1Cash.Text = (table.players[0].cash).ToString();
-                    P2Cash.Text = (table.players[1].cash).ToString();
-                    P3Cash.Text = (table.players[2].cash).ToString();
-                    P4Cash.Text = (table.players[3].cash).ToString();
-                    P5Cash.Text = (table.players[4].cash).ToString();
-                    P6Cash.Text = (table.players[5].cash).ToString();
-                    P7Cash.Text = (table.players[6].cash).ToString();
-                    playerVis[0].show();
-                    playerVis[1].show();
+                case 3:
+                    playernum = 5;
                     playerVis[2].show();
                     playerVis[3].show();
                     playerVis[4].show();
                     playerVis[5].hide();
+                    playerVis[6].hide();
+                    playerVis[7].hide();
                     break;
-                case 6:
-                    table = new Table(new Deck(),8);
-                    P1Cash.Text = (table.players[0].cash).ToString();
-                    P2Cash.Text = (table.players[1].cash).ToString();
-                    P3Cash.Text = (table.players[2].cash).ToString();
-                    P4Cash.Text = (table.players[3].cash).ToString();
-                    P5Cash.Text = (table.players[4].cash).ToString();
-                    P6Cash.Text = (table.players[5].cash).ToString();
-                    P7Cash.Text = (table.players[6].cash).ToString();
-                    P8Cash.Text = (table.players[7].cash).ToString();
-                    playerVis[0].show();
-                    playerVis[1].show();
+                case 4:
+                    playernum = 6;
                     playerVis[2].show();
                     playerVis[3].show();
                     playerVis[4].show();
                     playerVis[5].show();
+                    playerVis[6].hide();
+                    playerVis[7].hide();
+                    break;
+                case 5:
+                    playernum = 7;
+                    playerVis[2].show();
+                    playerVis[3].show();
+                    playerVis[4].show();
+                    playerVis[5].show();
+                    playerVis[6].show();
+                    playerVis[7].hide();
+                    break;
+                case 6:
+                    playernum = 8;
+                    playerVis[2].show();
+                    playerVis[3].show();
+                    playerVis[4].show();
+                    playerVis[5].show();
+                    playerVis[6].show();
+                    playerVis[7].show();
                     break;
             }
+            resetPlayerBoxes();
+
+            table = new Table(new Deck(), playernum, this);
+            foreach (Player p in table.players)
+            {
+                playerVis[p.id].money.Text = p.cash.ToString();
+            }
+            table.resetTable();
             vizualize();
+            table.startTable();
+        }
+
+        private void aiNewGame()
+        {
+            // set bool to signal gameThread to restart
+            restart = true;
+            //release gamethread from user interaction lock
+            table.mre.Set();
+            //wait for thread response on being locked
+            table.threadLockEvent.WaitOne();
+            table.threadLockEvent = new ManualResetEvent(false);
+            //reset bet-money
+            foreach (Player p in table.players)
+            {
+                p.bet = 0;
+                p.cash = 1000;
+            }
+            //starttable with new ai players
+            table.startTable();
         }
 
         private void P1ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P1ComboBox.SelectedText.Equals("Human"))
             {
-                table.players[0] = new HumanPlayer(1000);
+                table.players[0] = new HumanPlayer(1000,0,table);
+                aiNUm--;
             }
             else
             {
-                table.players[0] = new AIPlayer(1000);
+                table.players[0] = new AIPlayer(1000, 0, table,(new Parameters(0)).getLatestParam(aiNUm));
+                aiNUm++;
             }
             table.resetTable();
             table.statevalue = State.Preflop;
             vizualize();
+            aiNewGame();
         }
 
         private void P2ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P2ComboBox.SelectedText.Equals("Human"))
             {
-                table.players[1] = new HumanPlayer(1000);
+                table.players[1] = new HumanPlayer(1000, 1, table);
+                aiNUm--;
             }
             else
             {
-                table.players[1] = new AIPlayer(1000);
+                table.players[1] = new AIPlayer(1000, 1, table, (new Parameters(0)).getLatestParam(aiNUm));
+                aiNUm++;
             }
             table.resetTable();
             table.statevalue = State.Preflop;
             vizualize();
+            aiNewGame();
         }
 
         private void P3ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P3ComboBox.SelectedText.Equals("Human"))
             {
-                table.players[2] = new HumanPlayer(1000);
+                table.players[2] = new HumanPlayer(1000, 2, table);
+                aiNUm--;
             }
             else
             {
-                table.players[2] = new AIPlayer(1000);
+                table.players[2] = new AIPlayer(1000, 2, table, (new Parameters(0)).getLatestParam(aiNUm));
+                aiNUm++;
             }
             table.resetTable();
             table.statevalue = State.Preflop;
             vizualize();
+            aiNewGame();
         }
 
         private void P4ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P4ComboBox.SelectedText.Equals("Human"))
             {
-                table.players[3] = new HumanPlayer(1000);
+                table.players[3] = new HumanPlayer(1000, 3, table);
+                aiNUm--;
             }
             else
             {
-                table.players[3] = new AIPlayer(1000);
+                table.players[3] = new AIPlayer(1000, 3, table, (new Parameters(0)).getLatestParam(aiNUm));
+                aiNUm++;
             }
             table.resetTable();
             table.statevalue = State.Preflop;
             vizualize();
+            aiNewGame();
         }
 
         private void P5ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P5ComboBox.SelectedText.Equals("Human"))
             {
-                table.players[4] = new HumanPlayer(1000);
+                table.players[4] = new HumanPlayer(1000, 4, table);
+                aiNUm--;
             }
             else
             {
-                table.players[4] = new AIPlayer(1000);
+                table.players[4] = new AIPlayer(1000, 4, table, (new Parameters(0)).getLatestParam(aiNUm));
+                aiNUm++;
             }
             table.resetTable();
             table.statevalue = State.Preflop;
             vizualize();
+            aiNewGame();
         }
 
         private void P6ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P6ComboBox.SelectedText.Equals("Human"))
             {
-                table.players[5] = new HumanPlayer(1000);
+                table.players[5] = new HumanPlayer(1000, 5, table);
+                aiNUm--;
             }
             else
             {
-                table.players[5] = new AIPlayer(1000);
+                table.players[5] = new AIPlayer(1000, 5, table, (new Parameters(0)).getLatestParam(aiNUm));
+                aiNUm++;
             }
             table.resetTable();
             table.statevalue = State.Preflop;
             vizualize();
+            aiNewGame();
         }
 
         private void P7ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P7ComboBox.SelectedText.Equals("Human"))
             {
-                table.players[6] = new HumanPlayer(1000);
+                table.players[6] = new HumanPlayer(1000, 6, table);
+                aiNUm--;
             }
             else
             {
-                table.players[6] = new AIPlayer(1000);
+                table.players[6] = new AIPlayer(1000, 6, table, (new Parameters(0)).getLatestParam(aiNUm));
+                aiNUm++;
             }
             table.resetTable();
             table.statevalue = State.Preflop;
             vizualize();
+            aiNewGame();
         }
 
         private void P8ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (P8ComboBox.SelectedText.Equals("Human"))
             {
-                table.players[7] = new HumanPlayer(1000);
+                table.players[7] = new HumanPlayer(1000, 7, table);
+                aiNUm--;
             }
             else
             {
-                table.players[7] = new AIPlayer(1000);
+                table.players[7] = new AIPlayer(1000, 7, table, (new Parameters(0)).getLatestParam(aiNUm));
+                aiNUm++;
             }
             table.resetTable();
             table.statevalue = State.Preflop;
             vizualize();
+            aiNewGame();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void finishBtn_Click(object sender, EventArgs e)
         {
-            table.statevalue = table.nextState(table.statevalue);
-            statusLabel.Text = table.statevalue.ToString();
-            vizualize();
+            table.mre.Set();
         }
 
+        private void foldBtn_Click(object sender, EventArgs e)
+        {
+            table.folded = true;
+            finishBtn_Click(sender, e);
+        }
+
+        public void removeCards(int i)
+        {
+            playerVis[i].c1.Image = Properties.Resources.black;
+            playerVis[i].c2.Image = Properties.Resources.black;
+
+        }
+
+        private void callBTN_Click(object sender, EventArgs e)
+        {
+            table.called = true;
+            finishBtn_Click(sender, e);
+        }
 
     }
 }
