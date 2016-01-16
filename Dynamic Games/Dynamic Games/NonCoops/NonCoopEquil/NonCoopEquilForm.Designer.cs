@@ -36,6 +36,7 @@
             this.lEquil = new System.Windows.Forms.Label();
             this.bStart = new System.Windows.Forms.Button();
             this.pParam = new System.Windows.Forms.Panel();
+            this.lConclusion = new System.Windows.Forms.Label();
             this.tbPM = new System.Windows.Forms.TextBox();
             this.lparam4 = new System.Windows.Forms.Label();
             this.tbSmax = new System.Windows.Forms.TextBox();
@@ -47,7 +48,6 @@
             this.lParam = new System.Windows.Forms.Label();
             this.lvResult = new System.Windows.Forms.ListView();
             this.lArchive = new System.Windows.Forms.Label();
-            this.lConclusion = new System.Windows.Forms.Label();
             this.pParam.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,6 +131,14 @@
             this.pParam.Size = new System.Drawing.Size(163, 260);
             this.pParam.TabIndex = 8;
             this.pParam.Visible = false;
+            // 
+            // lConclusion
+            // 
+            this.lConclusion.AutoSize = true;
+            this.lConclusion.Location = new System.Drawing.Point(3, 157);
+            this.lConclusion.Name = "lConclusion";
+            this.lConclusion.Size = new System.Drawing.Size(0, 13);
+            this.lConclusion.TabIndex = 11;
             // 
             // tbPM
             // 
@@ -222,14 +230,6 @@
             this.lArchive.TabIndex = 10;
             this.lArchive.Text = "Archive";
             // 
-            // lConclusion
-            // 
-            this.lConclusion.AutoSize = true;
-            this.lConclusion.Location = new System.Drawing.Point(3, 157);
-            this.lConclusion.Name = "lConclusion";
-            this.lConclusion.Size = new System.Drawing.Size(0, 13);
-            this.lConclusion.TabIndex = 11;
-            // 
             // NonCoopEquilForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,6 +246,7 @@
             this.Controls.Add(this.lGame);
             this.Controls.Add(this.cbGame);
             this.Name = "NonCoopEquilForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NonCoopEquilForm";
             this.Load += new System.EventHandler(this.NonCoopEquilForm_Load);
             this.pParam.ResumeLayout(false);

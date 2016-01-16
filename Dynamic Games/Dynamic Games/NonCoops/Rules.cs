@@ -9,6 +9,7 @@ namespace Dynamic_Games
     class Rules
     {
 
+        // The first rule
         public int[] NeighborsDecide(int N, int[,] checkMatrix, int[] colors, int ruleParam)
         {
             int[] neighborCont = new int[N];
@@ -49,6 +50,7 @@ namespace Dynamic_Games
             return newColors;
         }
 
+        // The second tule - Part 1
         public float MultFactGrows(int N, float multFact , int ruleParam, int coopPerc)
         {
             if (coopPerc >= ruleParam && (multFact+multFact*10/100)<N)
@@ -58,6 +60,7 @@ namespace Dynamic_Games
             return multFact;
         }
 
+        // The second rule - Part 2
         public int[] SelflesnessMultFactGrows(int N, float pd, int c, float[] moneyArr, float[] investmentArr, int[] selflessness, int[] colors)
         {
             float moneyBefore = 0, investmentBefore = 0, counter = 0;
@@ -120,8 +123,24 @@ namespace Dynamic_Games
             return newColors;
         }
 
-        public int[] NeighborsAndSelflesness(int N, int[,] checkMatrix, int[] colors, int ruleParam, int[] selflesness, float moneyBefore, int c)
+        // The third rule
+        public int[] NeighborsAndSelflesness(int N, int c, float pd, int[,] checkMatrix, int[] colors, int ruleParam, int[] selflessness, float[] investmentArr, float[] moneyArr)
         {
+            float moneyBefore = 0, investmentBefore = 0, counter = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                if (moneyArr[i] != -1)
+                {
+                    Console.WriteLine("MoneyArr[" + i + "] = " + moneyArr[i]);
+                    moneyBefore += moneyArr[i];
+                    investmentBefore += investmentArr[i];
+                    counter++;
+                }
+            }
+
+            moneyBefore /= counter; investmentBefore /= counter;
+            Console.WriteLine("MoneyBefore: " + moneyBefore);
+
             Random rand = new Random();
 
             int[] neighborCont = new int[N];
@@ -137,6 +156,7 @@ namespace Dynamic_Games
             }
 
             int[] newColors = new int[N];
+            int howSelflessIAm;
             for (int i = 0; i < N; i++)
             {
                 int defNr = 0;
@@ -149,14 +169,34 @@ namespace Dynamic_Games
                     }
                 }
 
-                if (defNr >= (int)(neighborCont[i] * ruleParam / 100))
+                howSelflessIAm = rand.Next(100);
+                if (colors[i] == 1)
                 {
-                    newColors[i] = 1;
+                    Console.WriteLine("PD: " + pd + " moneyBefore: " + moneyBefore);
+                    howSelflessIAm = rand.Next(100);
+                    if (pd < moneyBefore && howSelflessIAm < selflessness[i])
+                    {
+                        newColors[i] = 2;
+                    }
+                    else if(defNr >= (int)(neighborCont[i] * ruleParam / 100)){
+                        newColors[i] = 1;
+                    }
+                    else if (howSelflessIAm < selflessness[i])
+                    {
+                        newColors[i] = 2;
+                    }
+                    else
+                    {
+                        newColors[i] = 1;
+                    }
                 }
                 else
                 {
-                    if (moneyBefore < c && rand.Next(100) > selflesness[i])
+                    if (howSelflessIAm > selflessness[i])
                     {
+                        newColors[i] = 1;
+                    }
+                    else if (pd > c || defNr < (int)(neighborCont[i] * ruleParam / 100)) {
                         newColors[i] = 2;
                     }
                     else

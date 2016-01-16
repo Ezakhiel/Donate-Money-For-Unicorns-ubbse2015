@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.NoPTB = new System.Windows.Forms.TextBox();
             this.InvestmentTB = new System.Windows.Forms.TextBox();
             this.MultiTB = new System.Windows.Forms.TextBox();
@@ -255,7 +255,7 @@
             this.ruleCB.Items.AddRange(new object[] {
             "Neighbors Decide",
             "Mult. Fact. Grows",
-            "Minimum Percentage"});
+            "N + S"});
             this.ruleCB.Location = new System.Drawing.Point(124, 205);
             this.ruleCB.Name = "ruleCB";
             this.ruleCB.Size = new System.Drawing.Size(140, 21);
@@ -311,22 +311,22 @@
             // 
             // LineChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.LineChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.LineChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.LineChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.LineChart.Legends.Add(legend1);
             this.LineChart.Location = new System.Drawing.Point(37, 259);
             this.LineChart.Name = "LineChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series3.Legend = "Legend1";
-            series3.Name = "C";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series4.Legend = "Legend1";
-            series4.Name = "D";
-            this.LineChart.Series.Add(series3);
-            this.LineChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series1.Legend = "Legend1";
+            series1.Name = "C";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Legend = "Legend1";
+            series2.Name = "D";
+            this.LineChart.Series.Add(series1);
+            this.LineChart.Series.Add(series2);
             this.LineChart.Size = new System.Drawing.Size(383, 367);
             this.LineChart.TabIndex = 29;
             this.LineChart.Text = "chart1";
@@ -375,9 +375,10 @@
             // 
             // EquilButton
             // 
-            this.EquilButton.Location = new System.Drawing.Point(500, 150);
+            this.EquilButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EquilButton.Location = new System.Drawing.Point(295, 220);
             this.EquilButton.Name = "EquilButton";
-            this.EquilButton.Size = new System.Drawing.Size(75, 23);
+            this.EquilButton.Size = new System.Drawing.Size(140, 24);
             this.EquilButton.TabIndex = 34;
             this.EquilButton.Text = "Equil";
             this.EquilButton.UseVisualStyleBackColor = true;
@@ -422,6 +423,7 @@
             this.Controls.Add(this.InvestmentTB);
             this.Controls.Add(this.NoPTB);
             this.Name = "NonCoopForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NonCoopForm";
             this.Load += new System.EventHandler(this.NonCoopForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.graphBox)).EndInit();

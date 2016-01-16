@@ -222,10 +222,8 @@ namespace Dynamic_Games.NonCoops
             int counter = 0;
             for (int i = 0; i < N + 1; i++)
             {
-                Console.WriteLine(i + ". :" + playerId);
                 if (i != playerId)
                 {
-                    Console.WriteLine("Counter: " + counter);
                     tmpColors[counter] = colors[i];
                     counter++;
                 }

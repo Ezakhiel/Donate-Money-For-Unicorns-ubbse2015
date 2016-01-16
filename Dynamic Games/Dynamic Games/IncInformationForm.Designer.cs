@@ -913,6 +913,7 @@ namespace Dynamic_Games
             this.Controls.Add(this.ComboPlayerCount);
             this.Controls.Add(this.TablePicture);
             this.Name = "IncInformationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IncompleteInformationForm";
             this.Load += new System.EventHandler(this.IncInformationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TablePicture)).EndInit();

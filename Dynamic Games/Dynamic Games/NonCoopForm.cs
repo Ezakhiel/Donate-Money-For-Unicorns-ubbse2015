@@ -97,6 +97,7 @@ namespace Dynamic_Games
 
                 NrCoopTB.Text = nc + "";
                 nrDefTB.Text = nd + "";
+                addToChart(nc, nd);
 
                 pd = (r * nc * c) / N; cd = pd - c;
 
@@ -158,13 +159,13 @@ namespace Dynamic_Games
 
                     ReColor(rules.SelflesnessMultFactGrows(N, pd, c, moneyArr, investmentArr, selflesness, colors));
                 }
-                else if (ruleCB.Text.Equals("Minimum Percentage"))
+                else
                 {
                     //-------------------------------------------------------------------------------------------//
                     //                           Neighbors decide with Selflessness Factor                      //
                     // ----------------------------------------------------------------------------------------//
 
-                    int[] newColors = rules.NeighborsDecide(N, checkMatrix, colors, Convert.ToInt32(RuleParamTB.Text));
+                    int[] newColors = rules.NeighborsAndSelflesness(N, c, pd, checkMatrix, colors, Convert.ToInt32(RuleParamTB.Text), selflesness, investmentArr, moneyArr);
 
                     ReColor(newColors);
                 }
@@ -326,7 +327,7 @@ namespace Dynamic_Games
             }
             else
             {
-                RuleParamL.Text = "Minimum%: ";
+                RuleParamL.Text = "Neighbor%: ";
             }
         }
 
