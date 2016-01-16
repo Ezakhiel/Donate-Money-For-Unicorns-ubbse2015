@@ -12,6 +12,10 @@ namespace Dynamic_Games.coop.backend
     {
         void init(Player[] players, int m);
 
+        void start();
+
         List<Coalition> getPartialResult();
+
+        void RequestStop();
     }
 }

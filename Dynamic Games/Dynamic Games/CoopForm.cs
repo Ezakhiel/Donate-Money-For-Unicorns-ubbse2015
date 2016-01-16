@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using CColor = System.Drawing.Color;
 using System.Resources;
 using System.Windows.Forms.DataVisualization.Charting;
+using Dynamic_Games.coop.backend;
+using Dynamic_Games.Coop.Exceptions;
 
 namespace Dynamic_Games
 {
@@ -17,6 +19,8 @@ namespace Dynamic_Games
     {
         Random randomGen = new Random();
         List<string> coal;
+        Controller controller;
+        List<int> profits;
 
         //close the form
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -31,6 +35,7 @@ namespace Dynamic_Games
             InitializeComponent();
             initDgvChart();
             initInput();
+            controller = Controller.getInstance();
         }
 
         private void initDgvChart()
@@ -80,11 +85,32 @@ namespace Dynamic_Games
 
                     var playerFuncTokenized = tokenizer(richTextBoxPlayerFunc.Text);
                     var materialsTokenized = tokenizer(richTextBoxMaterials.Text);
-                    DgvFirstRow();
-                    FillDataGrid();
-                    chart();
+                    var materials = new int[materialsTokenized.Length][];
+                    for (var i = 0; i < materials.Length; i++)
+                    {
+                        string[] splitString = materialsTokenized[i].Split(new string[] { " " }, StringSplitOptions.None).ToArray();
+                        materials[i] = new int[splitString.Length];
+                        for (var j = 0; j < splitString.Length; j++)
+                        {
+                            materials[i][j] = Convert.ToInt32(splitString[j]);
+                        }
+                    }
+                        
+                    //DgvFirstRow();
+                    //FillDataGrid();
+                    //chart();
+                    try
+                    {
+                        controller.init(playerFuncTokenized, materials);
+                        timer1.Enabled = true;
+                    }
+                    catch(InputException ex)
+                    {
+                        buttonStop_Click(null, null);
+                        Console.WriteLine(ex.ToString());
+                        MessageBox.Show(this, ex.Message, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
-                    timer1.Enabled = true;
                 }
                 else if (buttonStart.Text == "   Pause")
                 {
@@ -117,6 +143,7 @@ namespace Dynamic_Games
             buttonClear.Enabled = true;
             buttonStop.Enabled = false;
             timer1.Enabled = false;
+            controller.stop();
         }
 
         //clear button
@@ -177,7 +204,7 @@ namespace Dynamic_Games
             Decimal.ToInt32(numericPlayer.Value);
             for (int i = 0; i < 1; i++)
             {
-                this.coal = BackTrack(Decimal.ToInt32(numericPlayer.Value));
+                //this.coal = BackTrack(Decimal.ToInt32(numericPlayer.Value));
                 var c = "";
                 foreach (var e in coal)
                 {
@@ -225,7 +252,7 @@ namespace Dynamic_Games
         //chart fill
         private void chart()
         {
-            List<int> winningFunc = new List<int>();
+            /*List<int> winningFunc = new List<int>();
             int count = 1;
             int rnd;
             
@@ -244,14 +271,14 @@ namespace Dynamic_Games
                 rnd = randomGen.Next(10, 1000);
                 winningFunc.Add(rnd);
                 count2--;
-            }
-            var avg = winningFunc.Min() - winningFunc.Average() <= 0 ? 0 : winningFunc.Min() - winningFunc.Average();
+            }*/
+            var avg = profits.Min() - profits.Average() <= 0 ? 0 : profits.Min() - profits.Average();
             chartProfit.ChartAreas[0].AxisY.Minimum = Convert.ToDouble(avg);
             //chartProfit.ChartAreas[0].AxisY.Maximum = Convert.ToDouble(winningFunc.Max());
 
-            for (int j = 0; j < count; j++)
+            for (int j = 0; j < profits.Count; j++)
             {
-                chartProfit.Series["Coalitions"].Points.AddY(winningFunc[j]);
+                chartProfit.Series["Coalitions"].Points.AddY(profits[j]);
             }
         }
 
@@ -372,18 +399,30 @@ namespace Dynamic_Games
             ///dgvCoalition.Refresh();
             //int addPlayers = Decimal.ToInt32(numericPlayer.Value) + 1;
             //int leftPlayers = Decimal.ToInt32(numericPlayer.Value) - 1;
-
-            FillDataGrid();
-            foreach (var series in chartProfit.Series)
-            {
-                series.Points.Clear();
+            Dynamic_Games.Coop.Models.PartialResult result = controller.getPartialResult();
+            if (result != null) {
+                if (result.End)
+                {
+                    buttonStop_Click(null, null);
+                }
+                else
+                {
+                    coal = result.Coalitions;
+                    profits = result.Profits;
+                    FillDataGrid();
+                    foreach (var series in chartProfit.Series)
+                    {
+                        series.Points.Clear();
+                    }
+                    chart();
+                }
             }
-            chart();
         }
 
         // add one new player (dynamic game)
         private void buttonNewPlayer_Click(object sender, EventArgs e)
         {
+
             numericPlayer.Value += 1;
         }
 
