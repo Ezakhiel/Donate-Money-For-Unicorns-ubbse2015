@@ -476,5 +476,16 @@ namespace Dynamic_Games
             var lineCount = richTextBoxPlayerFunc.Lines.Count();
             numericPlayer.Value = lineCount;
         }
+
+        internal Dynamic_Games.Coop.Models.PartialResult PartialResult
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }

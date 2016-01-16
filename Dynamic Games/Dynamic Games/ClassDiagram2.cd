@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Dynamic_Games.coop.backend.Controller">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAgBgAAYAEAAAARABAAA=</HashCode>
+      <FileName>Coop\Backend\Controller.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="calculator" />
+      <Property Name="PartialResult" />
+      <Property Name="Player" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dynamic_Games.coop.models.Coalition" Collapsed="true">
+    <Position X="1" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAEAAAAAAAAAAAgaAAAIBAAAABAAAA=</HashCode>
+      <FileName>Coop\Models\Coalition.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="players" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Dynamic_Games.coop.models.Player" Collapsed="true">
+    <Position X="4.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAIAAAACAAAAEAAAAAAQAAAAEAgAAAAAAAABAAAA=</HashCode>
+      <FileName>Coop\Models\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="valueFunction" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dynamic_Games.coop.models.ValueFunction" Collapsed="true">
+    <Position X="6" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAgIAAAIAAAAAEAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Coop\Models\ValueFunction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dynamic_Games.Coop.Models.PartialResult" Collapsed="true">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAACAAAAABAAAAAQAAAAQAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Coop\Models\PartialResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Dynamic_Games.CoopForm" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>mARAQAiAACICgDkcAACwBAACRFGCMCAgGAAAACAkiFA=</HashCode>
+      <FileName>CoopForm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="controller" />
+      <Property Name="PartialResult" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Dynamic_Games.coop.backend.AnytimeAlgorithm" Collapsed="true">
+    <Position X="1" Y="1.25" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="Dynamic_Games.coop.backend.AnytimeAlgorithm.PruneResult" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Coop\Backend\AnytimeAlgorithm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Struct Name="Dynamic_Games.coop.backend.AnytimeAlgorithm.StackStructForSearchList" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Coop\Backend\AnytimeAlgorithm.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAgAAGAAAIBAAgggIIAABAAAABBgAANANBAMAIABCAA=</HashCode>
+      <FileName>Coop\Backend\AnytimeAlgorithm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cs" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="players" />
+    </ShowAsCollectionAssociation>
+    <Lollipop Position="0.388" />
+  </Class>
+  <Interface Name="Dynamic_Games.coop.backend.EquilibriumCalculator" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAgAAAAAAAAAAAAAAIAAAAAAAABAAA=</HashCode>
+      <FileName>Coop\Backend\EquilibriumCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

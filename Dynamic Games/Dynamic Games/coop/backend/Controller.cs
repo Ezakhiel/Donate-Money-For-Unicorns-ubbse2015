@@ -20,6 +20,28 @@ namespace Dynamic_Games.coop.backend
 
         private Controller(){}
 
+        internal Dynamic_Games.Coop.Models.PartialResult PartialResult
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public Dynamic_Games.coop.models.Player Player
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public static Controller getInstance()
         {
             if (instance == null){
