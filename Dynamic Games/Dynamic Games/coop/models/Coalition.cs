@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dynamic_Games.Coop.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,8 +29,7 @@ namespace Dynamic_Games.coop.models
         {
             if (player.Materials.Length > materials.Length)
             {
-                //TODO: create exception
-                throw new Exception();
+                throw new InputException("Wrong input, materials have different length.");
             }
             players.Add(player);
             materials = materials.Zip(player.Materials, (x, y) => x + y).ToArray<int>();

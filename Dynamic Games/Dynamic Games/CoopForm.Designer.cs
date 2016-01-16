@@ -82,7 +82,7 @@
             // numericPlayer
             // 
             this.numericPlayer.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.numericPlayer.Location = new System.Drawing.Point(645, 63);
+            this.numericPlayer.Location = new System.Drawing.Point(645, 32);
             this.numericPlayer.Name = "numericPlayer";
             this.numericPlayer.Size = new System.Drawing.Size(144, 20);
             this.numericPlayer.TabIndex = 1;
@@ -90,9 +90,9 @@
             // richTextBoxMaterials
             // 
             this.richTextBoxMaterials.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.richTextBoxMaterials.Location = new System.Drawing.Point(602, 174);
+            this.richTextBoxMaterials.Location = new System.Drawing.Point(564, 138);
             this.richTextBoxMaterials.Name = "richTextBoxMaterials";
-            this.richTextBoxMaterials.Size = new System.Drawing.Size(229, 111);
+            this.richTextBoxMaterials.Size = new System.Drawing.Size(302, 157);
             this.richTextBoxMaterials.TabIndex = 4;
             this.richTextBoxMaterials.Text = "";
             this.richTextBoxMaterials.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxMaterials_KeyPress);
@@ -100,7 +100,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(678, 47);
+            this.label1.Location = new System.Drawing.Point(678, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 7;
@@ -109,7 +109,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(609, 106);
+            this.label2.Location = new System.Drawing.Point(609, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 8;
@@ -118,7 +118,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(756, 106);
+            this.label3.Location = new System.Drawing.Point(756, 64);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 9;
@@ -127,7 +127,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(693, 158);
+            this.label5.Location = new System.Drawing.Point(693, 122);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 11;
@@ -137,7 +137,7 @@
             // 
             this.buttonNewPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonNewPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonNewPlayer.Location = new System.Drawing.Point(601, 122);
+            this.buttonNewPlayer.Location = new System.Drawing.Point(601, 80);
             this.buttonNewPlayer.Name = "buttonNewPlayer";
             this.buttonNewPlayer.Size = new System.Drawing.Size(108, 23);
             this.buttonNewPlayer.TabIndex = 13;
@@ -149,7 +149,7 @@
             // 
             this.buttonLeaver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.buttonLeaver.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonLeaver.Location = new System.Drawing.Point(726, 122);
+            this.buttonLeaver.Location = new System.Drawing.Point(726, 80);
             this.buttonLeaver.Name = "buttonLeaver";
             this.buttonLeaver.Size = new System.Drawing.Size(108, 23);
             this.buttonLeaver.TabIndex = 14;
@@ -160,7 +160,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(678, 295);
+            this.label4.Location = new System.Drawing.Point(678, 306);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 13);
             this.label4.TabIndex = 17;
@@ -169,11 +169,12 @@
             // richTextBoxPlayerFunc
             // 
             this.richTextBoxPlayerFunc.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.richTextBoxPlayerFunc.Location = new System.Drawing.Point(602, 311);
+            this.richTextBoxPlayerFunc.Location = new System.Drawing.Point(564, 322);
             this.richTextBoxPlayerFunc.Name = "richTextBoxPlayerFunc";
-            this.richTextBoxPlayerFunc.Size = new System.Drawing.Size(229, 111);
+            this.richTextBoxPlayerFunc.Size = new System.Drawing.Size(302, 157);
             this.richTextBoxPlayerFunc.TabIndex = 16;
             this.richTextBoxPlayerFunc.Text = "";
+            this.richTextBoxPlayerFunc.TextChanged += new System.EventHandler(this.richTextBoxPlayerFunc_TextChanged);
             this.richTextBoxPlayerFunc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBoxPlayerFunc_KeyPress);
             // 
             // dgvCoalition
@@ -223,7 +224,7 @@
             // 
             this.buttonClear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.buttonClear.Location = new System.Drawing.Point(665, 456);
+            this.buttonClear.Location = new System.Drawing.Point(437, 421);
             this.buttonClear.Name = "buttonClear";
             this.buttonClear.Size = new System.Drawing.Size(108, 34);
             this.buttonClear.TabIndex = 18;
@@ -237,7 +238,7 @@
             this.buttonStop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.buttonStop.Image = global::Dynamic_Games.Properties.Resources.stop;
-            this.buttonStop.Location = new System.Drawing.Point(459, 389);
+            this.buttonStop.Location = new System.Drawing.Point(437, 365);
             this.buttonStop.Name = "buttonStop";
             this.buttonStop.Size = new System.Drawing.Size(108, 34);
             this.buttonStop.TabIndex = 12;
@@ -251,7 +252,7 @@
             this.buttonStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.buttonStart.Image = ((System.Drawing.Image)(resources.GetObject("buttonStart.Image")));
-            this.buttonStart.Location = new System.Drawing.Point(459, 322);
+            this.buttonStart.Location = new System.Drawing.Point(437, 306);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(108, 34);
             this.buttonStart.TabIndex = 6;

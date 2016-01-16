@@ -52,7 +52,7 @@ namespace Dynamic_Games.coop.models
             }
             catch (COMException e)
             {
-                throw new InputException("False value function",e);
+                throw new InputException("Wrong function in input",e);
             }
         }
         

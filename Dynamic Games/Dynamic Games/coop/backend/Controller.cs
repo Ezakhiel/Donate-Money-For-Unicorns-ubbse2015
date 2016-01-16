@@ -116,7 +116,7 @@ namespace Dynamic_Games.coop.backend
 
                 foreach (var coalition in coalitions)
                 {
-                    coals.Add(coalition.ToString());
+                    coals.Add(coalition.ToString() + "    ");
                     profits.Add(Convert.ToInt32(coalition.getMaximumValue()));
                 }
 
