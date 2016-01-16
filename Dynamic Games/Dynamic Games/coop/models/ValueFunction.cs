@@ -50,7 +50,7 @@ namespace Dynamic_Games.coop.models
                 var value = obj.Eval(parameters + function);
                 return value;
             }
-            catch (COMException e)
+            catch (Exception e)
             {
                 throw new InputException("Wrong function in input",e);
             }
